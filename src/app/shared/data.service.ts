@@ -12,7 +12,7 @@ export class DataService {
 
   registerUser(data: any){
     data.uid = this.firestore.createId();
-    return this.firestore.collection('/registered').add(data);
+    return this.firestore.collection('registered').doc(data.email).set(data);
   }
   addStudent(data: any){
     data.uid = this.firestore.createId();
