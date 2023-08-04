@@ -35,6 +35,12 @@ const routes: Routes = [
     path: 'upload-spreadsheet',
     loadChildren: () => import('./FacultyMember/upload-spreadsheet/upload-spreadsheet.module').then( m => m.UploadSpreadsheetPageModule)
   },
+  {
+    path: 'fm-profile',
+    loadChildren: () => import('./fm-profile/fm-profile.module').then( m => m.FMProfilePageModule)
+  },
+  
+
   
 ];
 
