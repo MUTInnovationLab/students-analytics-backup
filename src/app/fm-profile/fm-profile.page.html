@@ -1,28 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="center-text">Faculty Member </ion-title>
+    <ion-title class="center-text">Faculty Member</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="content-container">
-  <ion-title class="title center-title" style="margin-bottom: 20px;">
+  <ion-title class="title center-title" style="margin-top: 20px; margin-bottom: 20px;">
     <b>Create Your Profile</b>
   </ion-title>
   
-  <ion-card>
-  <ion-item>
-    <ion-label position="floating">Enter Name</ion-label>
-    <ion-input type="text" style="max-width: 200px;"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Enter LastName</ion-label>
-    <ion-input type="text" style="max-width: 200px;"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Email Address</ion-label>
-    <ion-input type="text" style="max-width: 200px;"></ion-input>
-  </ion-item>
+  <!-- Rest of your content -->
+
   
-</ion-card>  
+  <ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <ion-card class="custom-card">
+      <ion-item>
+        <ion-label position="floating">Enter Name</ion-label>
+        <ion-input type="text" style="max-width: 200px;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Enter LastName</ion-label>
+        <ion-input type="text" style="max-width: 200px;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input type="text" style="max-width: 200px;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select placeholder="Select gender">
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item fill="outline">
+          <ion-label>Date of Birth</ion-label>
+          <ion-datetime-button  datetime="birthDatee"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+            <ion-datetime    id="birthDatee"   presentation="date"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+      <ion-item>
+        <ion-label position="floating">Enter department</ion-label>
+        <ion-input type="text" style="max-width: 200px;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Job Title</ion-label>
+        <ion-input type="text" style="max-width: 200px;"></ion-input>
+      </ion-item>
+    </ion-card>
+    
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <ion-button size="medium" color="primary">Create</ion-button>
+  </div> 
+</ion-content>
 </ion-content>
 
