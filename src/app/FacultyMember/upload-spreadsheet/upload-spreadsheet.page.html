@@ -1,13 +1,42 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>UploadSpreadsheet</ion-title>
+    <ion-title>Student Management</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">UploadSpreadsheet</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Upload Student Marks</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input type="file" (change)="onFileChange($event)"></ion-input>
+      <ion-button expand="full" (click)="uploadMarks()">Upload</ion-button>
+    
+      <div *ngIf="uploadPercent > 0">
+        <p>Upload Progress: {{ uploadPercent }}%</p>
+      </div>
+    
+      <div *ngIf="downloadURL">
+        <p>Download URL: {{ downloadURL }}</p>
+      </div>
+    </ion-card-content>
+    
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>All Registered Students</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row *ngFor="let student of studentDetails; let i = index">
+          <ion-col size="2"> {{ student }}</ion-col>
+          <ion-col size="1" *ngFor="let mark of studentMarks[i]; let j = index">{{ mark }}</ion-col>
+        </ion-row>
+
+</ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
