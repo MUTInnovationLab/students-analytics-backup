@@ -1,13 +1,37 @@
 .center-text {
     text-align: center;
     font-weight: bold;
+    color: #000000;
   }
 
   .content-container {
-    margin-top: -100px; /* Adjust the value as needed */
+    margin-top: -200px; /* Adjust the value as needed */
+    color: #D9D1C5;
+    font-weight: bold;
+    
+  }
+  .header-color {
+    background-color: blue;
+  }
+  .header-color {
+    background-color: #3498db; /* Replace with your desired color */
   }
 
   .center-title {
     text-align: center;
+    color: #000000;
   }
+
   
+  .custom-card {
+    max-width: 500px;
+    margin: 0 auto;
+    display: block; /* Set display to block */
+    background-color: #D9D1C5; /* Add your desired background color */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  .ion-padding{
+    background-color: antiquewhite;
+  }

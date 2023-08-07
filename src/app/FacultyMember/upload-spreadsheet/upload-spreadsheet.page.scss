@@ -1,0 +1,15 @@
+.custom-col {
+    border: 1px solid black;
+    width: calc(100% / 5); /* Adjust the number of columns as needed */
+    box-sizing: border-box;
+    text-align: center;
+    float: left; /* Add this property to make columns float next to each other */
+  }
+  
+  /* Clear float after each row */
+  .ion-item::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  

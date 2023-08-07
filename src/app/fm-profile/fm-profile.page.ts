@@ -8,6 +8,13 @@ import { IonDatetime } from '@ionic/angular';
   styleUrls: ['./fm-profile.page.scss'],
 })
 export class FMProfilePage implements OnInit {
+  email='';
+  fname='';
+  lname='';
+  gender='';
+  birthday='';
+  department='';
+  jobtitle='';
 
   constructor() { }
 

@@ -38,14 +38,17 @@ const routes: Routes = [
   {
     path: 'fm-profile',
     loadChildren: () => import('./fm-profile/fm-profile.module').then( m => m.FMProfilePageModule)
-  },  {
+  },
+  {
+    path: 'add-mentor',
+    loadChildren: () => import('./add-mentor/add-mentor.module').then( m => m.AddMentorPageModule)
+  },
+
+  {
     path: 'admin-dashboard',
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
   },
 
-  
-
-  
 ];
 
 @NgModule({
