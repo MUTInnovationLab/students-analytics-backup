@@ -55,7 +55,9 @@ text-align: center;
     display: none !important;
   }
 
-  
+ ion-list{
+  width: 325px;
+ }
   /* Adjustments for smaller screens */
   @media (max-width: 1000px) {
     .ion-container-div2 {
