@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'fm-profile',
     loadChildren: () => import('./fm-profile/fm-profile.module').then( m => m.FMProfilePageModule)
+  },  {
+    path: 'admin-dashboard',
+    loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
   },
+
   
 
   
