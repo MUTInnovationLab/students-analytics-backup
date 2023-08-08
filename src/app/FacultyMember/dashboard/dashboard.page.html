@@ -1,13 +1,80 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>Faculty Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Dashboard</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid   style="margin-top:0%;margin-left:0%;margin-right:0%;height:630px;background-color: rgb(19, 89, 135);">
+    
+    <ion-row>
+    <ion-col size="3"  style="background-color:rgb(62, 78, 93);height:630px;">
+        
+          <ion-avatar>
+            <ion-img src="assets/profile.jpeg"></ion-img>
+          </ion-avatar>
+          <ion-title>{{ facultyName }}</ion-title>
+        
+      </ion-col>
+    <ion-col size="9">
+  <ion-grid >
+      <ion-row>
+      <ion-col size="6">
+        <ion-card (click)="navigateToAddStudent()">
+          <ion-card-content>
+            <ion-icon name="person-add-outline" style="font-size: 100px;"></ion-icon>
+            <h1>Add Student</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="navigateToUploadSpreadsheet()">
+          <ion-card-content>
+            <ion-icon name="cloud-upload-outline" style="font-size: 100px;"></ion-icon>
+            <h1>Upload Spreadsheet</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card (click)="navigateToAssignmentPage()">
+          <ion-card-content>
+            <ion-icon name="document-outline" style="font-size: 100px;"></ion-icon>
+            <h1>Assignments</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="navigateToViewMarksPage()">
+          <ion-card-content>
+            <ion-icon name="book-outline" style="font-size: 100px;"></ion-icon>
+            <h1>View Student Marks</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card (click)="navigateToFacultyProfile()">
+          <ion-card-content>
+            <ion-icon name="person-outline" style="font-size: 100px;"></ion-icon>
+            <h1>Faculty Profile</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="navigateToStudentProfile()">
+          <ion-card-content>
+            <ion-icon name="person-circle-outline" style="font-size: 100px;"></ion-icon>
+            <h1>Student Profile</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-col>
+</ion-row>
+</ion-grid>
 </ion-content>

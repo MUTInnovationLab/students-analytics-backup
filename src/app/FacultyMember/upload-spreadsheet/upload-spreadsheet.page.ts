@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Student } from 'src/app/module/student.mode';
 import { DataService } from 'src/app/shared/data.service';
 import { finalize } from 'rxjs/operators';
 
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-upload-spreadsheet',
@@ -17,15 +18,21 @@ export class UploadSpreadsheetPage implements OnInit {
   pdfContent: string = '';
   students: Student[] = [];
   studentMarks: any;
-
+  found:boolean=false;
+  disableButton: boolean = true;
     linesArray: string[] = [];
 
     array: any;
 
     studentDetails:string[]=[];
-   
 
-  constructor(private data: DataService, private storage: AngularFireStorage) {
+    @ViewChild('fileInput') fileInput: any;
+    isLoading = false;
+
+    name: any='';
+
+  constructor(private data: DataService, private storage: AngularFireStorage,private loadingController: LoadingController,
+    private navCtrl: NavController) {
     this.loadStudents();
     this.linesArray = this.pdfContent.split('\n');
     console.error(this.linesArray);
@@ -34,17 +41,70 @@ export class UploadSpreadsheetPage implements OnInit {
   ngOnInit(): void {
     // Implement any initialization logic if needed
   }
+  //------------------------------------------------
+  // async showLoader() {
+  //   const loader = await this.loadingController.create({
+  //     message: 'Loading...', // You can customize the message
+  //     spinner: 'crescent', // Use a different spinner style if desired
+  //     translucent: true,
+  //   });
 
+  //   await loader.present();
 
+  //   setTimeout(() => {
+  //     this.hideLoader(loader);
+  //   }, 3000); // Adjust the duration as needed
+  // }
 
+  // hideLoader(loader: HTMLIonLoadingElement) {
+  //   loader.dismiss();
+  // }
+
+  toggleLoader() {
+    this.isLoading = true;
+    
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 4000); // Simulating loading time, adjust as needed
+  }
+//----------------------------------------------------------------------------------
+  
+
+  showLoader() {
+    this.isLoading = true;
+    alert("hard");
+    setTimeout(() => {
+      this.hideLoader();
+    }, 3000); // Adjust the duration as needed
+  }
+
+  hideLoader() {
+    this.isLoading = false;
+  }
+//----------------------------------------------------------------------------------
   loadStudents() {
     this.data.getAllStudents().subscribe((students) => {
       this.students = students;
     });
   }
-
+  triggerFileInput() {
+    // Programmatically trigger a click event on the hidden file input
+    this.fileInput.nativeElement.click();
+  }
   onFileChange(event: any) {
     this.selectedFile = event.target.files[0];
+    this.name=this.selectedFile?.name;
+    
+    if(!this.selectedFile)
+    {
+      this.found = false;
+      this.disableButton=true;
+    }
+    if(this.selectedFile){
+      this.found=true;
+      this.disableButton=false;
+    }
+    
   }
 
   readAndUploadFileContent(file: File) {
@@ -113,7 +173,7 @@ export class UploadSpreadsheetPage implements OnInit {
           
           this.studentDetails[count] = this.students[x].firstname + '-' + this.students[x].lastname + '-' + this.students[x].studentNumber;
           
-          alert(this.studentDetails[count]);
+          // alert(this.studentDetails[count]);
           
           this.studentMarks[count] = this.array[i]; 
           console.log(this.studentDetails[count])

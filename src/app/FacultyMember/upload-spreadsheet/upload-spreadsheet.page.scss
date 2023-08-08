@@ -12,4 +12,52 @@
     display: table;
     clear: both;
   }
+  ion-loading.custom-loading {
+    --background: #e3edff;
+    --spinner-color: #1c6dff;
+  
+    color: #1c6dff;
+  }
+  
+  #container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  #icon, #loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3498db; /* Change to your icon's color */
+    border-radius: 50%;
+  }
+  
+  #loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .selected {
+    background-color: rgba(7, 212, 0, 0.695); /* Set the desired background color */
+  }
+  .blueBackground {
+    background-color: rgb(210, 210, 210); /* Set the desired blue color */
+  }
+  .selected {
+    background-color: rgba(7, 212, 0, 0.695); /* Set the desired background color */
+  }
+  .blueBackground {
+    background-color:rgb(210, 210, 210);
+    color: #5a5a5a; /* Set the desired blue color */
+  }
+  
   
