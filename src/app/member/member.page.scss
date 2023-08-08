@@ -42,6 +42,11 @@ ion-content{
     display: none;
   }
     
+  
+  ion-icon{
+
+    margin-right:10px ;
+  }
    /* Styles for mobile view and up to 1000px width */
 @media (max-width: 1000px) {
     .table-card-mobile {
@@ -71,4 +76,38 @@ ion-content{
   }
   
   
+  /* Style for the search input */
+.custom-searchbar {
+    --background: #f0f0f0; /* Background color */
+    --color: #333; /* Text color */
+    --placeholder-color: #999; /* Placeholder text color */
+    --cancel-button-color: #666; /* Cancel button color */
+    --search-icon-color: #666; /* Search icon color */
+    --border-radius: 15px; /* Border radius */
+    width: 350px;
+  }
+  
+  /* Style for the input field inside the search input */
+  .custom-searchbar .searchbar-input {
+    border-radius: 15px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  /* Style for the cancel button */
+  .custom-searchbar .searchbar-clear-button {
+    color: #666;
+  }
+  
+  /* Style for the search icon */
+  .custom-searchbar .searchbar-search-icon {
+    color: #666;
+  }
+  
+  /* Apply a cool animation on focus */
+  .custom-searchbar input[type="search"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  }
   
