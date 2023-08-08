@@ -47,7 +47,15 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
+  },  {
+    path: 'add-member',
+    loadChildren: () => import('./add-member/add-member.module').then( m => m.AddMemberPageModule)
   },
+  {
+    path: 'member',
+    loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
+  },
+
 
 ];
 
