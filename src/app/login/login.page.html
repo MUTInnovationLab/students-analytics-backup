@@ -5,48 +5,69 @@
 </ion-header>
 
 <ion-content>
-<ion-card style ="margin-top:0%;margin-left:0%;margin-right:0%;height: 110%; background: linear-gradient(to left, white,black);">
+  <ion-card style="margin-top:0%;margin-left:0%;margin-right:0%;height: 110%; background: linear-gradient(to left, white, black);">
 
-  <p></p>
-  <ion-card-content style=" height:50%;margin-top:9%;margin-left:30%;background:linear-gradient(to bottom,black,white);margin-right:30%">
-<!-- login.component.html -->
+    
+    <ion-card-content>
 
-  <ion-grid class="ion-padding">
-    <ion-row>
-      <ion-col size="12">
-        <h2 class="ion-text-center" style="font-size: xx-large;font-family: 'Times New Roman', Times, serif;font-weight: bolder;font-style: italic;">Logn In</h2>
-      
-        <!-- <h2 class="ion-text-center">Login</h2> -->
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-item class="ion-justify-content-center ion-align-items-center">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="text" [(ngModel)]="email"></ion-input>
-          <ion-icon name="email-outline" slot="end"></ion-icon>
-        </ion-item>
-        
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-item class="ion-justify-content-center ion-align-items-center">
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="text" [(ngModel)]="password"></ion-input>
-          <ion-icon name="lock-closed-outline" slot="end"></ion-icon>
-        </ion-item>
-        
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button expand="block" style="height:40%; font-size:90%;" color="success"(click)="login()">Login</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <p>create account? <a (click)="switch()"> click here</a></p>
-  </ion-card-content>
+      <ion-grid class="ion-padding">
+        <ion-row>
+          <ion-col size="12">
+            <h2 class="ion-text-center" style="font-size: xx-large;font-family: 'Times New Roman', Times, serif;font-weight: bolder;font-style: italic;">Logn In</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item class="ion-justify-content-center ion-align-items-center">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text" [(ngModel)]="email"></ion-input>
+              <ion-icon name="email-outline" slot="end"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item class="ion-justify-content-center ion-align-items-center">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" [(ngModel)]="password"></ion-input>
+              <ion-icon name="lock-closed-outline" slot="end"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button expand="block" style="font-size: 1rem;" color="success" (click)="login()">Login</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <p>create account? <a (click)="switch()">click here</a></p>
+    </ion-card-content>
   </ion-card>
-  </ion-content>
+</ion-content>
 
+<style>
+  @media(min-width: 601px){
+    ion-card-content{
+       height:50%;
+       margin-top:9%;
+       margin-left:30%;
+       background:linear-gradient(to bottom,black,white);
+       margin-right:30%
+      }
+    }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 600px) {
+    ion-card-content {
+      margin-left: 0%;
+      margin-right: 0%;
+    }
+    h2 {
+      font-size: x-large;
+    }
+    ion-button {
+      font-size: 0.9rem;
+      height: auto;
+    }
+  }
+</style>

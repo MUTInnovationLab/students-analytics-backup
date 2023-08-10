@@ -12,13 +12,25 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardPage implements OnInit {
 
   facultyName: string = 'John Doe';
-  
+  //facultyName: string = 'John Doe';
+  email: string = 'john.doe@example.com';
+  department: string = "Information Communication Technology"
     constructor(
       private navCtrl: NavController,
       private router: Router
     ) {}
   ngOnInit(){
 
+  }
+  
+
+  navigateToHelpSupport() {
+    // Navigate to the Help/Support page
+    this.router.navigate(['/help-support']);
+  }
+
+  navigateToLogout() {
+    // Handle logout logic here
   }
   
     navigateToAddStudent() {
