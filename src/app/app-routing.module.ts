@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'member',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
+  {
+    path: 'my-modal',
+    loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
+  },
 
 
 ];

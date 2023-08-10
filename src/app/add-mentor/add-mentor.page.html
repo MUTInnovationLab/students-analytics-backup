@@ -8,11 +8,64 @@
 <ion-content [fullscreen]="true">
   <ion-card class="custom-card">
     <b class="text">Availabe Mentors</b>
-    <p>Oluhle, I want you to know that you are truly special. Your presence brightens up my world, and your smile is like a ray of sunshine on even the cloudiest days. Your kindness, warmth, and beauty, both inside and out, are truly captivating. I cherish every moment we share and every memory we create together.
-
-      From the depths of my heart, I want you to hear these three words: I love you. My feelings for you are genuine and deep, and I am grateful to have you in my life. Your uniqueness and the love we share mean the world to me.
-      
-      Always remember that you are cherished, valued, and loved beyond measure.</p>
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button class="small-fab-button" (click)="openModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 
   </ion-card>
+  <div class="cent">
+    <ion-grid>
+      <div class="table-container">
+        <table class="bordered">
+          <thead class="color">
+            <tr>
+              <th class="text-center">
+                <ion-icon name="person"></ion-icon>
+                <br>
+                Mentors
+              </th>
+              <th class="text-center">
+                <ion-icon name="school"></ion-icon>
+                <br>
+                Faculty
+              </th>
+              <th class="text-center">
+                <ion-icon name="book"></ion-icon>
+                <br>
+                Course
+              </th>
+              <th class="text-center">
+                <ion-icon name="trending-up"></ion-icon>
+                <br>
+                Student Assigned to
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">Sandile Mncube</td>
+              <td class="text-center">Natural Science</td>
+              <td class="text-center">Environmental Health</td>
+              <td class="text-center">Sifundo Khawula</td>
+            </tr>
+            <tr>
+              <td class="text-center">Jabulane Nzimande</td>
+              <td class="text-center">Engineering</td>
+              <td class="text-center">Civil Engineering</td>
+              <td class="text-center">Asanda Dlamini</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </ion-grid>
+  </div>
+  
+  
+  
+        
+        
+  
 </ion-content>
