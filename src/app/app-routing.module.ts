@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  // },
+  
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -47,7 +44,8 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
-  },  {
+  },
+  {
     path: 'add-member',
     loadChildren: () => import('./add-member/add-member.module').then( m => m.AddMemberPageModule)
   },
@@ -55,8 +53,10 @@ const routes: Routes = [
     path: 'member',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
-
-
+  {
+    path: 'view-details',
+    loadChildren: () => import('./view-details/view-details.module').then( m => m.ViewDetailsPageModule)
+  },
 ];
 
 @NgModule({

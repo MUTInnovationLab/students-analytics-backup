@@ -29,12 +29,15 @@ ion-card {
     display: none; /* Initially hide the button */
 }
   @media (min-width: 1000px) {
+    ion-grid{
+      margin-top: 4%;
+    }
     ion-card {
       font-size: 80px; /* Increase icon size for desktop screens */
-      height: 150px;
+      height: 200px;
         
       ion-icon {
-        font-size: 80px; /* Increase icon size for desktop screens */
+        font-size: 150px; /* Increase icon size for desktop screens */
     
       } 
     }
