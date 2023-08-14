@@ -58,6 +58,16 @@ const routes: Routes = [
     loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
   },
 
+  {
+    path: 'departments',
+    loadChildren: () => import('./departments/departments.module').then( m => m.DepartmentsPageModule)
+  },  {
+    path: 'courses',
+    loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
+  }
+
+
+]
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

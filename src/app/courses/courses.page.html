@@ -1,0 +1,85 @@
+
+
+<ion-header>
+  <ion-toolbar color=black style="background-color: black;">
+    <ion-title style="text-align: center;font-weight: bolder;color:brown;">
+       DEPARTMENT OF ICT COURSES
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button color=light>
+
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="btn-for-table">
+    <ion-icon class="hideIcon" name="chevron-back-outline"></ion-icon>
+    <ion-icon class="hideIcon" name="chevron-forward-outline"></ion-icon>
+    <ion-searchbar class="custom-searchbar" placeholder="Search the Course"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="medium" fill="clear" color="secondary">
+        <ion-icon size="large" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-card class="table-card">
+    <ion-card-content>
+  <ion-grid >
+    <ion-row class="header-row">
+      <ion-col class="custom-col">Course Name</ion-col>
+      <ion-col class="custom-col">abbreviation Name</ion-col>
+      <ion-col class="custom-col">Number Modules</ion-col>
+      <ion-col class="custom-col">Navigate</ion-col>
+    </ion-row>
+      <ion-row class="data-row" >
+        <ion-col class="custom-col"></ion-col>
+        <ion-col class="custom-col"></ion-col>
+        <ion-col class="custom-col"></ion-col>
+        <ion-col class="custom-col">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-card-content>
+</ion-card>
+
+
+      <ion-grid class="table-card-mobile">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="data-card">
+         <ion-item >
+       
+                <ion-note slot="end" style="text-align: right;">09/07/2023</ion-note>
+              
+              <ion-card-header class="hidden">
+                <!-- <div shape="square" style="background-color: brown;position:strict ; height:150px;width:150px;text-align: center;margin-left: 25%;" ><h2 style="margin-top:40%;">ICT</h2>
+                </div> -->
+                <div style="background-color: brown; width: 150px; height: 150px; text-align: center; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                  <h2 style="margin: 0;">ICT</h2>
+                </div>
+                
+    
+              </ion-card-header>
+              <ion-card-content >
+                <h1 style="font-weight: bold;font-size:20px;font-style: italic;"></h1>
+                <p>Start Date </p>
+                <p> </p>
+                <p></p>
+              </ion-card-content>
+         
+                <!-- <ion-button size="medium" fill="clear">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                </ion-button> -->
+         
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+<!-- __________________________________________________________ -->
+
+</ion-content>
