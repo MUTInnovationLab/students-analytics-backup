@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddLecturePageRoutingModule } from './add-lecture-routing.module';
+import { AddMModalPageRoutingModule } from './add-m-modal-routing.module';
 
-import { AddlecturePage } from './add-lecture.page';
+import { AddMModalPage } from './add-m-modal.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddLecturePageRoutingModule
+    AddMModalPageRoutingModule
   ],
-  declarations: [AddlecturePage]
+  declarations: [AddMModalPage]
 })
-export class AddLecturePageModule {}
+export class AddMModalPageModule {}

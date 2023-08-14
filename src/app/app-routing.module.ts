@@ -63,6 +63,12 @@ const routes: Routes = [
     path: 'add-lecture',
     loadChildren: () => import('./add-lecture/add-lecture.module').then( m => m.AddLecturePageModule)
   },
+  {
+    path: 'add-m-modal',
+    loadChildren: () => import('./add-m-modal/add-m-modal.module').then( m => m.AddMModalPageModule)
+  },
+
+  
 
 
 

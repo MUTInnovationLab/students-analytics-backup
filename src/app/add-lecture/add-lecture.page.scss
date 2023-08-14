@@ -1,0 +1,54 @@
+.ion-title{
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+/* styles.css */
+.custom-toolbar {
+    background-color: #3498db; /* Replace with your desired color */
+    color: white; /* Text color */
+  }
+.custom-card{
+    max-width: 500px;
+    margin: 50 ;
+    display: block; /* Set display to block */
+    background-color: #D9D1C5; /* Add your desired background color */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 15px; /* Add border radius for rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+
+}  
+.text{
+font-weight: bold;
+}
+.small-fab-button {
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 8px; /* Adjust padding as needed */
+    margin: 50 ;
+    position: fixed;
+    bottom: 0px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+}
+
+//tableStyle
+.table-container {
+    width: 50%;
+    overflow-x: auto;
+    float: right;
+  }
+
+  .bordered {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .bordered th, .bordered td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+  .text-center {
+    text-align: center;
+  }
+  .color{
+    background-color: #D9D1C5;
+  }

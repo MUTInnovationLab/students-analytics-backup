@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddMModalPage } from '../add-m-modal/add-m-modal.page';
 
 @Component({
   selector: 'app-add-lecture',
   templateUrl: './add-lecture.page.html',
   styleUrls: ['./add-lecture.page.scss'],
 })
-export class AddLecturePage implements OnInit {
+export class AddlecturePage {
 
-  constructor() { }
+  constructor(private modalController: ModalController) {}
 
-  ngOnInit() {
+  async openlectureModal() {
+    const modal = await this.modalController.create({
+      component: AddMModalPage,
+    });
+
+    await modal.present();
   }
-
 }

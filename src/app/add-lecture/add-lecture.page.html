@@ -1,13 +1,71 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>add-lecture</ion-title>
+  <ion-toolbar style="height: 100%; background-color: #E3DAC9;" color="black">
+    <ion-title class="ion-title">Add Lecture</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add-lecture</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="custom-card">
+    <b class="text">Availabe Lectures</b>
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button class="small-fab-button" (click)="openlectureModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-card>
+  <div class="cent">
+    <ion-grid>
+      <div class="table-container">
+        <table class="bordered">
+          <thead class="color">
+            <tr>
+              <th class="text-center">
+                <ion-icon name="person"></ion-icon>
+                <br>
+                Mentors
+              </th>
+              <th class="text-center">
+                <ion-icon name="school"></ion-icon>
+                <br>
+                Faculty
+              </th>
+              <th class="text-center">
+                <ion-icon name="book"></ion-icon>
+                <br>
+                Course
+              </th>
+              <th class="text-center">
+                <ion-icon name="trending-up"></ion-icon>
+                <br>
+                Student Assigned to
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">Sandile Mncube</td>
+              <td class="text-center">Natural Science</td>
+              <td class="text-center">Environmental Health</td>
+              <td class="text-center">Sifundo Khawula</td>
+            </tr>
+            <tr>
+              <td class="text-center">Jabulane Nzimande</td>
+              <td class="text-center">Engineering</td>
+              <td class="text-center">Civil Engineering</td>
+              <td class="text-center">Asanda Dlamini</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </ion-grid>
+  </div>
+  
+  
+  
+        
+        
+  
 </ion-content>
