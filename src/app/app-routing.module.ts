@@ -47,7 +47,8 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
-  },  {
+  },
+  {
     path: 'add-member',
     loadChildren: () => import('./add-member/add-member.module').then( m => m.AddMemberPageModule)
   },
@@ -58,7 +59,11 @@ const routes: Routes = [
   {
     path: 'my-modal',
     loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
+  },  {
+    path: 'add-lecture',
+    loadChildren: () => import('./add-lecture/add-lecture.module').then( m => m.AddLecturePageModule)
   },
+
 
 
 ];
