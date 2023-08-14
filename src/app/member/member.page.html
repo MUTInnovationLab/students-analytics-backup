@@ -8,8 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+ 
     <ion-item class="btn-for-table">
+      <ion-searchbar class="custom-searchbar" placeholder="Search the member"></ion-searchbar>
       <ion-buttons slot="end">
         <ion-button size="medium" fill="clear" color="secondary">
           Add
@@ -18,7 +19,7 @@
           Edit
         </ion-button>
         <ion-button size="small" fill="clear"  color="light">
-          Resert
+          Reset
         </ion-button>
       </ion-buttons>
     </ion-item>
@@ -41,8 +42,8 @@
           <ion-col size="3">{{ item.email }}</ion-col>
           <ion-col size="2">{{ item.course }}</ion-col>
           <ion-col size="1">
-            <ion-button size="small" fill="clear">Edit</ion-button>
-            <ion-button size="small" fill="clear">Delete</ion-button>
+          <ion-icon name="create-outline" color="warning"></ion-icon>
+          <ion-icon name="close-circle-outline" color="danger"></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>

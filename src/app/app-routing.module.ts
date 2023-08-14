@@ -54,10 +54,9 @@ const routes: Routes = [
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
   {
-    path: 'view-details',
-    loadChildren: () => import('./view-details/view-details.module').then( m => m.ViewDetailsPageModule)
+    path: 'my-modal',
+    loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
   },
-];
 
 @NgModule({
   imports: [
