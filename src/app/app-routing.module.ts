@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   
   {
-    path: 'login',
+    path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -56,18 +56,8 @@ const routes: Routes = [
   {
     path: 'my-modal',
     loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
-<<<<<<< HEAD
   },
-
   {
-    path: 'departments',
-    loadChildren: () => import('./departments/departments.module').then( m => m.DepartmentsPageModule)
-  },  {
-    path: 'courses',
-    loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
-  }
-=======
-  },  {
     path: 'add-lecture',
     loadChildren: () => import('./add-lecture/add-lecture.module').then( m => m.AddLecturePageModule)
   },
@@ -75,7 +65,19 @@ const routes: Routes = [
     path: 'add-m-modal',
     loadChildren: () => import('./add-m-modal/add-m-modal.module').then( m => m.AddMModalPageModule)
   },
->>>>>>> 1a4128b6eb0de71783dd75921f4b94c8a9487056
+  {
+    path: 'departments',
+    loadChildren: () => import('./departments/departments.module').then( m => m.DepartmentsPageModule)
+  }
+  ,
+  {
+    path: 'courses',
+    loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
+  },  {
+    path: 'modules',
+    loadChildren: () => import('./modules/modules.module').then( m => m.ModulesPageModule)
+  }
+
 
   
 

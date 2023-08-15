@@ -76,14 +76,15 @@ ion-icon{
     display:none;
   }
 
+
 }
 
 
-// @media(min-width:1001px) {
+@media(min-width:1001px) {
   
- 
+  .mobile-only{display:none;}
 
-// }
+}
 /* Style for the search input */
 .custom-searchbar {
   --background: #f0f0f0; /* Background color */
@@ -131,19 +132,31 @@ ion-icon{
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-
-
-  // background-color: brown; width: 150px; height: 150px; text-align: center; display: flex; align-items: center; justify-content: center; margin: 0 auto;
 }
-
-/* Media query for responsiveness */
-// @media (max-width: 767px) {
-//   .square-container {
-//     width: 80%; /* Adjusted width for smaller screens */
-//   }
-// }
 @media (max-width: 540px) {
   .hidden {
     display: none; /* Adjusted width for smaller screens */
   }
+  
+}
+.data-card:hover {
+  --ion-background-color: #333; /* Change the card's background color */
+}
+
+.data-card:hover p,
+.data-card:hover h1 {
+  color: white; /* Change the text color for <p> and <h1> elements */
+}
+
+.data-card:hover div {
+  background-color: #8d2c2c !important; /* Change the background color of <div> elements */
+  
+}
+.data-card:hover div h2 {
+  color: white !important; /* Change the text color of <h2> element within the <div> */
+}
+.data-row:hover{
+  background-color: #333;
+  color: white !important;
+
 }

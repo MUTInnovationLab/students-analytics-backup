@@ -1,9 +1,9 @@
 
 
 <ion-header>
-  <ion-toolbar color=black style="background-color: black;">
-    <ion-title style="text-align: center;font-weight: bolder;color:brown;">
-       DEPARTMENT OF ICT COURSES
+  <ion-toolbar color=black style="background-color: #8d2c2c;">
+    <ion-title style="text-align: center;font-weight: bolder;color:white;">
+       DEPARTMENT OF ICT
     </ion-title>
     <ion-buttons slot="end">
       <ion-menu-button color=light>
@@ -15,8 +15,8 @@
 
 <ion-content>
   <ion-item class="btn-for-table">
-    <ion-icon class="hideIcon" name="chevron-back-outline"></ion-icon>
-    <ion-icon class="hideIcon" name="chevron-forward-outline"></ion-icon>
+    <ion-icon color='light' class="hideIcon" name="chevron-back-outline"></ion-icon>
+    <ion-icon color='light' class="hideIcon" name="chevron-forward-outline"></ion-icon>
     <ion-searchbar class="custom-searchbar" placeholder="Search the Course"></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button size="medium" fill="clear" color="secondary">
@@ -27,59 +27,54 @@
 
   <ion-card class="table-card">
     <ion-card-content>
-  <ion-grid >
-    <ion-row class="header-row">
-      <ion-col class="custom-col">Course Name</ion-col>
-      <ion-col class="custom-col">abbreviation Name</ion-col>
-      <ion-col class="custom-col">Number Modules</ion-col>
-      <ion-col class="custom-col">Navigate</ion-col>
-    </ion-row>
-      <ion-row class="data-row" >
-        <ion-col class="custom-col"></ion-col>
-        <ion-col class="custom-col"></ion-col>
-        <ion-col class="custom-col"></ion-col>
-        <ion-col class="custom-col">
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-col>
-      </ion-row>
-  </ion-grid>
-</ion-card-content>
-</ion-card>
-
-
-      <ion-grid class="table-card-mobile">
-        <ion-row>
-          <ion-col size="12">
-            <ion-card class="data-card">
-         <ion-item >
-       
-                <ion-note slot="end" style="text-align: right;">09/07/2023</ion-note>
-              
-              <ion-card-header class="hidden">
-                <!-- <div shape="square" style="background-color: brown;position:strict ; height:150px;width:150px;text-align: center;margin-left: 25%;" ><h2 style="margin-top:40%;">ICT</h2>
-                </div> -->
-                <div style="background-color: brown; width: 150px; height: 150px; text-align: center; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                  <h2 style="margin: 0;">ICT</h2>
-                </div>
-                
-    
-              </ion-card-header>
-              <ion-card-content >
-                <h1 style="font-weight: bold;font-size:20px;font-style: italic;"></h1>
-                <p>Start Date </p>
-                <p> </p>
-                <p></p>
-              </ion-card-content>
-         
-                <!-- <ion-button size="medium" fill="clear">
-                  <ion-icon name="add-circle-outline"></ion-icon>
-                </ion-button> -->
-         
-              </ion-item>
-            </ion-card>
+      <ion-grid>
+        <ion-row class="header-row">
+          <ion-col class="custom-col" size="1.5">Abbreviation</ion-col>
+          <ion-col class="custom-col" size="3">Course Name</ion-col>
+          
+          <ion-col class="custom-col" size="1">Number of Modules</ion-col>
+          <ion-col class="custom-col" size="2">Credits</ion-col>
+          <ion-col class="custom-col" size="3">Description</ion-col>
+          <ion-col class="custom-col" size="1.5">View Modules</ion-col>
+        </ion-row>
+        <ion-row class="data-row" *ngFor="let course of courses; let i = index;" (click)="viewCourses(course.numberOfModules)">
+          
+          <ion-col class="custom-col" size="1.5">{{ course.abbreviation }}</ion-col>
+          <ion-col class="custom-col" size="3">{{ course.name }}</ion-col>
+          <ion-col class="custom-col" size="1">{{ course.numberOfModules }}</ion-col>
+          <ion-col class="custom-col" size="2">{{ course.credits }}</ion-col>
+          <ion-col class="custom-col" size="3">{{course.description}}</ion-col>
+          <ion-col class="custom-col" size="1.5">
+            <ion-button fill="clear" (click)="openModal()">View</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+
+
+<ion-grid class="table-card-mobile">
+  <ion-row *ngFor="let course of courses">
+    <ion-col size="12">
+      <ion-card class="data-card" (click)="viewCourses(course.numberOfModules)">
+        <ion-item>
+          <ion-card-header class="hidden">
+            <div  style="background-color:#8d2c2c; width: 150px; height: 150px; text-align: center; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+              <h2 style="margin: 0;color: white;" >{{course.abbreviation}}</h2>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <h1 style="font-weight: bold; font-size: 20px; font-style: italic;">{{course.name}}</h1>
+            <p class="mobile-only">Number of Modules: {{ course.numberOfModules }}</p>
+            <p>Credits: {{ course.credits }}</p>
+          </ion-card-content>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 <!-- __________________________________________________________ -->
 
 </ion-content>
