@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Create Student Profile</ion-title>
   </ion-toolbar>
@@ -54,4 +54,59 @@
   </ion-card>
 
  
+</ion-content> -->
+<!-- ==============================Design=========================== -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Student Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="height: 100%;margin-top: 0%;margin-right: 0% ;margin-left: 0%;">
+    <ion-card-header style="margin-right:25%;margin-left: 25%;font-weight: bolder;font-size: 42;">
+      <ion-card-title style="font-weight: bolder;font-size: 42;">Add Student</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="margin-right:25%;margin-left: 25%;border:1px solid; border-color: brown;">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input [(ngModel)]="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input [(ngModel)]="lastname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select [(ngModel)]="gender">
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email Address</ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Student Number</ion-label>
+        <ion-input type="number" [(ngModel)]="studentNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Class Year</ion-label>
+        <ion-input type="number" [(ngModel)]="classYear"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Courses Enrolled</ion-label>
+        <ion-input [(ngModel)]="coursesEnrolled"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bratch</ion-label>
+        <ion-input [(ngModel)]="bratch"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="success" style="margin-left:10%;margin-right:10%;background-color:#2dd36f" (click)="saveStudent()">Save Student Profile</ion-button>
+      <ion-button expand="block" color="danger" style="margin-left:10%;margin-right:10%;background-color:#2dd36f"  href="/">Back</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
