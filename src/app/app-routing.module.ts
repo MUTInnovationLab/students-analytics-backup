@@ -47,13 +47,23 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
-  },  {
+  },
+  {
     path: 'add-member',
     loadChildren: () => import('./add-member/add-member.module').then( m => m.AddMemberPageModule)
   },
   {
     path: 'member',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
+  },
+ 
+  {
+    path: 'students',
+    loadChildren: () => import('./students/students.module').then( m => m.StudentsPageModule)
+  },
+  {
+    path: 'add-department-or-course',
+    loadChildren: () => import('./add-department-or-course/add-department-or-course.module').then( m => m.AddDepartmentOrCoursePageModule)
   },
 
 

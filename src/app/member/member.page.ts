@@ -16,13 +16,13 @@ export class MemberPage implements OnInit {
       name: 'John',
       surname: 'Doe',
       email: 'john.doe@example.com',
-      course: 'Programming',
+      course: '2',
     },
     {
       name: 'Jane',
       surname: 'Smith',
       email: 'jane.smith@example.com',
-      course: 'Design',
+      course: '7',
     },
     // Add more data items as needed
   ];

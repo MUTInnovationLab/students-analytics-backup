@@ -1,0 +1,40 @@
+ion-header {
+    ion-toolbar {
+      --background: #2c3e50;
+      --color: white;
+    }
+  }
+  
+  ion-content {
+    --background: #ecf0f1;
+    
+    ion-item {
+      --background: white;
+      --border-color: #bdc3c7;
+      --color: #34495e;
+      --padding-end: 10px;
+      --padding-start: 10px;
+    }
+  
+    ion-button {
+      --background: #3498db;
+      --color: white;
+    }
+  
+    ion-list {
+      margin-top: 20px;
+      ion-item {
+        --background: #ecf0f1;
+        --color: #34495e;
+      }
+    }
+  }
+  
+  ion-toggle{
+   margin-top: 10px;
+   margin-left:9px;
+  }
+
+  ion-content::part(background) {
+    background: #8d2c2c;;
+  }
