@@ -1,23 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>modules</ion-title>
- 
-    <ion-button slot="end" (click)="closeModal()">Close Modal</ion-button>
-
+  <ion-toolbar color="gray" style="background-color: #8d2c2c;">
+    <ion-title style="font-size: 40px;font-weight:bold;font-family: 'Times New Roman', Times, serif;text-align: center;color:white">modules</ion-title>
+      <ion-icon class="icon" style="font-size: 35px;font-weight: bold;margin-right: 2%;color:white"fill="clear" slot="end" name="close" (click)="closeModal()"></ion-icon>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let subject of subjects">
-      <ion-label>
-        <h2>{{ subject.name }}</h2>
-        <p><strong>Subject Code:</strong> {{ subject.subjectCode }}</p>
-        <p><strong>Description:</strong> {{ subject.description }}</p>
-        <p><strong>Lecturer:</strong> {{ subject.lecturer }}</p>
-        <p><strong>Year:</strong> {{ subject.year }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  
+<ion-content [fullscreen]="true" class="custom-modal-content">
+  <!-- <div style="background-color: #333;height:200%;width: 100%;"> -->
+  <ion-card *ngFor="let subject of subjects">
+    <ion-card-header><h2>{{ subject.name }}</h2></ion-card-header>
+    <ion-card-content>
+          <p><strong>Subject Code:</strong> {{ subject.subjectCode }}</p>
+          <p><strong>Description:</strong> {{ subject.description }}</p>
+          <p><strong>Lecturer:</strong> {{ subject.lecturer }}</p>
+          <p><strong>Year:</strong> {{ subject.year }}</p>
+    </ion-card-content>
+  </ion-card>
+<!-- </div> -->
 </ion-content>

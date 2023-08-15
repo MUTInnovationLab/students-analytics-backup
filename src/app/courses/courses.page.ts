@@ -3,8 +3,6 @@ import { Course} from 'src/app/module/course.mode';
 import { ModalController } from '@ionic/angular';
 import { ModulesPage } from '../modules/modules.page'; // Adjust the path
 
-
-
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.page.html',
@@ -51,10 +49,18 @@ export class CoursesPage implements OnInit {
   async openModal() {
     const modal = await this.modalController.create({
       component: ModulesPage,
-      cssClass: 'my-custom-modal-class' // Optional custom CSS class
+      cssClass: '.my-custom-modal' // Optional custom CSS class
     });
     return await modal.present();
   }
+
+
+  
+  
+  
+  
+  
+  
 
 
 
