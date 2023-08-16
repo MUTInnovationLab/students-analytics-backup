@@ -1,8 +1,10 @@
 ion-header {
     ion-toolbar {
-      --background: #2c3e50;
+      --background: black;
       --color: white;
+      --box-shadow: none;
     }
+    --box-shadow: none;
   }
   
   ion-content {

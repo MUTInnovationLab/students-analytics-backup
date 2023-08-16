@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-department-or-course',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDepartmentOrCoursePage implements OnInit {
 
- courseName: any;
+  courseName: any;
+  newCourseAbbreviation: any;
+  newCourseModules: any;
+  newCourseCredits: any;
+  newCourseDescription: any;
 
   showAddDepartment: boolean = false;
   showSelectDepartment: boolean = false;
@@ -15,20 +20,30 @@ export class AddDepartmentOrCoursePage implements OnInit {
   selectedDepartment: string = '';
   departments: string[] = ['HR', 'Finance', 'IT', 'Marketing'];
 
-
-  constructor() { }
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {
   }
 
-
   newCourse: any;
-  
-  courses: string[] = [];
+  courses: any[] = [];
 
   addCourse() {
-    if (this.selectedDepartment || this.newDepartment) {
-      this.courses.push(this.newCourse);
+    if ((this.selectedDepartment || this.newDepartment) && this.courseName && this.newCourseAbbreviation && this.newCourseModules && this.newCourseCredits && this.newCourseDescription) {
+      const course = {
+        name: this.courseName,
+        abbreviation: this.newCourseAbbreviation,
+        modules: this.newCourseModules,
+        credits: this.newCourseCredits,
+        description: this.newCourseDescription
+      };
+      this.courses.push(course);
+      // Clear input fields after adding a course
+      this.courseName = '';
+      this.newCourseAbbreviation = '';
+      this.newCourseModules = '';
+      this.newCourseCredits = '';
+      this.newCourseDescription = '';
     }
   }
 
@@ -36,4 +51,9 @@ export class AddDepartmentOrCoursePage implements OnInit {
     this.showAddDepartment = !this.showAddDepartment;
     this.showSelectDepartment = !this.showSelectDepartment;
   }
+
+  closeModal() {
+    this.modalController.dismiss();
+  }
 }
+

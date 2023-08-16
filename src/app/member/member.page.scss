@@ -20,6 +20,11 @@ ion-content{
       padding: 10px;
     }
   }
+  .data-row:hover{
+    background-color: #333;
+    color: white !important;
+  
+  }
   
   .data-row {
     ion-col {
@@ -71,7 +76,7 @@ ion-content{
   /* Additional styles for screens larger than 1000px */
   @media (min-width: 1001px) {
     .data-row {
-      font-size: 1.5rem; /* Adjust the font size for larger screens */
+      font-size: 1.2rem; /* Adjust the font size for larger screens */
     }
   }
   
