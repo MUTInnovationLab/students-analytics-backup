@@ -5,11 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card style ="margin-top:0%;margin-left:0%;margin-right:0%;height: 1000px; background: linear-gradient(to left, white,black);">
+  <ion-card style ="margin-top:0%;margin-left:0%;margin-right:0%; background: linear-gradient(to left, white,black);">
 
   
-  <ion-card-content style="background:linear-gradient(to top, #ffffff,black);margin-top:5%;margin-left:30%;margin-right:30%">
-  
+  <ion-card-content >
     <ion-grid class="ion-padding">
       <ion-row>
         <ion-col size="12">
@@ -70,10 +69,48 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  <p style="color:black">
+  <p>
     <ion-icon name="arrow-back" style="color:black;"(click)="switch()"></ion-icon>
   Login</p>
   </ion-card-content>
   
   </ion-card>
   </ion-content>
+  <style>
+    @media(min-width: 601px){
+      ion-card-content{
+        background:linear-gradient(to top, #ffffff,black);
+        margin-top:5%;
+        margin-left:30%;
+        margin-right:30%;
+  
+        }
+        p{
+          color:black;
+        }
+        ion-icon{color:black}
+        ion-card{height: 1100px;}
+      }
+    
+    /* Media query for smaller screens */
+    @media (max-width: 600px) {
+      ion-card-content {
+        margin-left: 0%;
+        margin-right: 0%;
+      }
+      
+      h2 {
+        font-size: x-large;
+      }
+      ion-button {
+        font-size: 0.9rem;
+        height: auto;
+      }
+      p{
+          color:white;
+        }
+        ion-icon{
+          color:white;
+        }
+    }
+  </style>

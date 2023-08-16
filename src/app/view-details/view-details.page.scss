@@ -1,0 +1,19 @@
+
+.custom-grid {
+  border: 1px solid black;
+
+}
+
+.custom-col {
+  border: 1px solid #444;
+  padding: 10px; /* Adding padding for better visibility */
+}
+ .header-row {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    ion-col {
+      border-right: 1px solid #444;
+      padding: 10px;
+    }
+  }

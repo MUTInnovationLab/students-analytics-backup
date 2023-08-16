@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  // },
+  
   {
-    path: 'login',
+    path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -56,7 +53,31 @@ const routes: Routes = [
     path: 'member',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
- 
+  {
+    path: 'my-modal',
+    loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
+  },
+  
+  {
+    path: 'add-m-modal',
+    loadChildren: () => import('./add-m-modal/add-m-modal.module').then( m => m.AddMModalPageModule)
+  },
+  {
+    path: 'departments',
+    loadChildren: () => import('./departments/departments.module').then( m => m.DepartmentsPageModule)
+  }
+  ,
+  {
+    path: 'courses',
+    loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
+  },
+  {
+    path: 'modules',
+    loadChildren: () => import('./modules/modules.module').then( m => m.ModulesPageModule)
+  }
+
+
+   
   {
     path: 'students',
     loadChildren: () => import('./students/students.module').then( m => m.StudentsPageModule)
@@ -67,8 +88,9 @@ const routes: Routes = [
   },
 
 
-];
 
+
+]
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

@@ -1,0 +1,162 @@
+ion-content{
+  --background: #333;
+}
+.btn-for-table{
+  --background: #333;
+
+}
+.table-card {
+  margin: 20px;
+  ion-card-content {
+    padding: 0;
+  }
+}
+
+.header-row {
+  background-color: #8d2c2c;
+  color: #fff;
+  text-align: center;
+  ion-col {
+    border-right: 1px solid #444;
+    padding: 10px;
+  }
+}
+
+.data-row {
+  ion-col {
+    border-right: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+  }
+  ion-button {
+    --color: #007bff;
+    font-size: 14px;
+  }
+  
+  /* Add the following lines to create horizontal lines */
+  & + .data-row {
+    border-top: 1px solid #ddd;
+  }
+}
+
+.table-card-mobile{
+  display: none;
+}
+  
+
+ion-icon{
+
+  margin-right:10px ;
+}
+ /* Styles for mobile view and up to 1000px width */
+@media (max-width: 1000px) {
+  .table-card-mobile {
+    display: contents;
+  }
+  
+  .table-card {
+    display: none;
+  }
+
+  .data-row {
+    display: block;
+    margin-bottom: 1rem;
+   // font-size: 1.5rem; /* Adjust the font size as needed */
+  }
+  .data-card {
+    padding: 1rem;
+    font-size: 20px;
+    text-align: center;
+  }
+  .custom-searchbar
+  {
+    margin-left: 0%;
+  }
+  .hideIcon{
+    display:none;
+  }
+
+
+}
+
+
+@media(min-width:1001px) {
+  
+  .mobile-only{display:none;}
+
+}
+/* Style for the search input */
+.custom-searchbar {
+  --background: #f0f0f0; /* Background color */
+  --color: #333; /* Text color */
+  --placeholder-color: #999; /* Placeholder text color */
+  --cancel-button-color: #666; /* Cancel button color */
+  --search-icon-color: #666; /* Search icon color */
+  --border-radius: 15px; /* Border radius */
+  width: 650px;
+  margin-left:23%;
+
+}
+
+/* Style for the input field inside the search input */
+.custom-searchbar .searchbar-input {
+  border-radius: 15px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Style for the cancel button */
+.custom-searchbar .searchbar-clear-button {
+  color: #666;
+}
+
+/* Style for the search icon */
+.custom-searchbar .searchbar-search-icon {
+  color: #666;
+}
+
+/* Apply a cool animation on focus */
+.custom-searchbar input[type="search"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+/* Style for the square container */
+.square-container {
+  background-color: #333;
+  width: 100%; /* Width adjusted for responsiveness */
+  height: 0;
+  padding-bottom: 100%; /* Creates a square based on the width */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media (max-width: 540px) {
+  .hidden {
+    display: none; /* Adjusted width for smaller screens */
+  }
+  
+}
+.data-card:hover {
+  --ion-background-color: #8d2c2c; /* Change the card's background color */
+}
+
+.data-card:hover p,
+.data-card:hover h1 {
+  color: white; /* Change the text color for <p> and <h1> elements */
+}
+
+.data-card:hover div {
+  background-color: #333 !important; /* Change the background color of <div> elements */
+  
+}
+.data-card:hover div h2 {
+  color: white !important; /* Change the text color of <h2> element within the <div> */
+}
+.data-row:hover{
+  background-color: #8d2c2c;
+  color: white !important;
+
+}

@@ -12,13 +12,16 @@
     <ion-item class="btn-for-table">
       <ion-searchbar class="custom-searchbar" placeholder="Search the member"></ion-searchbar>
       <ion-buttons slot="end">
-        <ion-button size="medium" fill="clear" color="secondary">
+        <ion-button size="medium" fill="clear" color="secondary"  (click)="openlectureModal()">
+          <ion-icon slot="start" name="Add"></ion-icon>
           Add
         </ion-button>
-        <ion-button size="small" fill="clear" color="warning">
+        <ion-button size="small" fill="clear" color="warning" (click)="openlectureModal()">
+          <ion-icon slot="start" name="create-outline"></ion-icon>
           Edit
         </ion-button>
-        <ion-button size="small" fill="clear"  color="light">
+        <ion-button size="small" fill="clear"  color="light" >
+          <ion-icon slot="start" name="refresh-sharp"></ion-icon>
           Reset
         </ion-button>
       </ion-buttons>

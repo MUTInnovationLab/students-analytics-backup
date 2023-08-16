@@ -1,0 +1,58 @@
+
+/* styles.css */
+ion-card {
+    text-align: center;
+  }
+
+  @media (max-width: 999px) {
+    .ion-col {
+      margin: 0; /* Adjust margins for small screens */
+    }
+    
+    ion-card {
+      padding: 15px; /* Increase padding for readability */
+    }
+    
+    ion-card ion-icon {
+      font-size: 60px; /* Decrease icon size for small screens */
+    }
+    
+    .desktop-only {
+        display: none; /* Show the column only on mobile view */
+      }
+      #desktop-button {
+        display: block; /* Show the button for desktop-sized screens */
+    }
+     
+  }
+  #desktop-button {
+    display: none; /* Initially hide the button */
+}
+  @media (min-width: 1000px) {
+    ion-grid{
+      margin-top: 4%;
+    }
+    ion-card {
+      font-size: 80px; /* Increase icon size for desktop screens */
+      height: 200px;
+        
+      ion-icon {
+        font-size: 150px; /* Increase icon size for desktop screens */
+    
+      } 
+    }
+    
+   
+    
+   
+    }
+  .container{
+    display:flex;
+    background: #8d2c2c;
+    height: 100vh;
+  
+}
+
+
+    
+  
