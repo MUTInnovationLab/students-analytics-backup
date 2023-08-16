@@ -13,6 +13,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
@@ -57,10 +61,7 @@ const routes: Routes = [
     path: 'my-modal',
     loadChildren: () => import('./my-modal/my-modal.module').then( m => m.MyModalPageModule)
   },
-  {
-    path: 'add-lecture',
-    loadChildren: () => import('./add-lecture/add-lecture.module').then( m => m.AddLecturePageModule)
-  },
+  
   {
     path: 'add-m-modal',
     loadChildren: () => import('./add-m-modal/add-m-modal.module').then( m => m.AddMModalPageModule)
@@ -73,13 +74,23 @@ const routes: Routes = [
   {
     path: 'courses',
     loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
-  },  {
+  },
+  {
     path: 'modules',
     loadChildren: () => import('./modules/modules.module').then( m => m.ModulesPageModule)
   }
+,
 
+   
+  {
+    path: 'students',
+    loadChildren: () => import('./students/students.module').then( m => m.StudentsPageModule)
+  },
+  {
+    path: 'add-department-or-course',
+    loadChildren: () => import('./add-department-or-course/add-department-or-course.module').then( m => m.AddDepartmentOrCoursePageModule)
+  },
 
-  
 
 
 

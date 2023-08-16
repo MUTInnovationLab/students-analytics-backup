@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -28,12 +29,13 @@ export class AddMModalPage {
   surname: any;
 
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private router: Router) { }
 
-  dismissModal() {
+  closeModal() {
     this.modalController.dismiss();
   }
 
+  
   create(){
   this.nameError=null;
   this.SurnameError=null;

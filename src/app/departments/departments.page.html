@@ -17,7 +17,7 @@
     <ion-icon class="hideIcon" name="chevron-back-outline"></ion-icon>
     <ion-icon class="hideIcon" name="chevron-forward-outline"></ion-icon>
     <ion-searchbar class="custom-searchbar" placeholder="Search the Department"></ion-searchbar>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" (click)="presentAddDepartmentModal()">
       <ion-button size="medium" fill="clear" color="secondary">
         <ion-icon size="large" name="add-circle-outline"></ion-icon>
       </ion-button>
