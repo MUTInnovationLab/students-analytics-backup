@@ -4,70 +4,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card style="margin-top:0%;margin-left:0%;margin-right:0%;height: 110%; background: linear-gradient(to left, white, black);">
+<ion-content [fullscreen]="true" style="--background: url('assets/background1.jpg') no-repeat center / cover;">
 
+<ion-card>
+<ion-card-content>
+  <br>
+ <div class="color2">
+  <ion-label >Email Address</ion-label>
+  <ion-item class="rounded">
+  <ion-input type="email" name="email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+    <br>
+    <ion-label class="color3">Password</ion-label>
+    <ion-item class="rounded">
+      <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <br>
     
-    <ion-card-content>
+    <ion-button type="submit" expand="block" >LOGIN</ion-button>
+    <div>
+    <ion-label>Already have an account?</ion-label>
+    <ion-label class="forgotPass">Sign Up</ion-label>
+  </div>
+    <ion-label>Forgot Password?</ion-label>
+    <ion-label class="forgotPass" >Reset</ion-label>
 
-      <ion-grid class="ion-padding">
-        <ion-row>
-          <ion-col size="12">
-            <h2 class="ion-text-center" style="font-size: xx-large;font-family: 'Times New Roman', Times, serif;font-weight: bolder;font-style: italic;">Logn In</h2>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="12">
-            <ion-item class="ion-justify-content-center ion-align-items-center">
-              <ion-label position="floating">Email</ion-label>
-              <ion-input type="text" [(ngModel)]="email"></ion-input>
-              <ion-icon name="email-outline" slot="end"></ion-icon>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="12">
-            <ion-item class="ion-justify-content-center ion-align-items-center">
-              <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" [(ngModel)]="password"></ion-input>
-              <ion-icon name="lock-closed-outline" slot="end"></ion-icon>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="12">
-            <ion-button expand="block" style="font-size: 1rem;" color="success" (click)="login()">Login</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <p>create account? <a (click)="switch()">click here</a></p>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
-
-<style>
-  @media(min-width: 601px){
-    ion-card-content{
-       height:50%;
-       margin-top:9%;
-       margin-left:30%;
-       background:linear-gradient(to bottom,black,white);
-       margin-right:30%
-      }
-    }
-  
-  /* Media query for smaller screens */
-  @media (max-width: 600px) {
-    ion-card-content {
-      margin-left: 0%;
-      margin-right: 0%;
-    }
-    h2 {
-      font-size: x-large;
-    }
-    ion-button {
-      font-size: 0.9rem;
-      height: auto;
-    }
-  }
-</style>
+ 
+  </div>  
+</ion-card-content>
+</ion-card>

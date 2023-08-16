@@ -31,7 +31,7 @@ export class AddMModalPage {
 
   constructor(private modalController: ModalController, private router: Router) { }
 
-  dismissModal() {
+  closeModal() {
     this.modalController.dismiss();
   }
 
