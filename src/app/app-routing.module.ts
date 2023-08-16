@@ -79,9 +79,18 @@ const routes: Routes = [
     path: 'modules',
     loadChildren: () => import('./modules/modules.module').then( m => m.ModulesPageModule)
   }
+,
 
+   
+  {
+    path: 'students',
+    loadChildren: () => import('./students/students.module').then( m => m.StudentsPageModule)
+  },
+  {
+    path: 'add-department-or-course',
+    loadChildren: () => import('./add-department-or-course/add-department-or-course.module').then( m => m.AddDepartmentOrCoursePageModule)
+  },
 
-  
 
 
 

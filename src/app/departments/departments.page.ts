@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { department} from 'src/app/module/Department.mode';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { AddDepartmentOrCoursePage } from '../add-department-or-course/add-department-or-course.page';
 
 @Component({
   selector: 'app-departments',
@@ -37,7 +38,7 @@ export class DepartmentsPage implements OnInit {
   ];
 
   color: String='brown';
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController,private modalController: ModalController) { }
 
   ngOnInit() {
    
@@ -81,4 +82,11 @@ calculateLuminance(color: string) {
 return 0;
 }
 
+
+async presentAddDepartmentModal() {
+  const modal = await this.modalController.create({
+    component:AddDepartmentOrCoursePage, // Use your CourseModalComponent here
+  });
+  return await modal.present();
+}
 }
