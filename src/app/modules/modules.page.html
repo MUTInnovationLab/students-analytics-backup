@@ -6,8 +6,8 @@
 </ion-header>
 <ion-content [fullscreen]="true" class="custom-modal-content">
   <!-- <div style="background-color: #333;height:200%;width: 100%;"> -->
-  <ion-card *ngFor="let subject of subjects">
-    <ion-card-header><h2>{{ subject.name }}</h2></ion-card-header>
+  <ion-card class="card" *ngFor="let subject of subjects">
+    <h1  style="font-size:25px;font-weight: bold;font-family: 'Times New Roman', Times, serif;">{{ subject.name }}</h1>
     <ion-card-content>
           <p><strong>Subject Code:</strong> {{ subject.subjectCode }}</p>
           <p><strong>Description:</strong> {{ subject.description }}</p>

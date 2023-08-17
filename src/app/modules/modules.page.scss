@@ -4,3 +4,11 @@ ion-content{
 .icon:hover{
     background-color: #333;
 }
+.card:hover{
+    background-color: #8d2c2c;
+    color: white !important;
+
+    header:hover{
+        color:white;
+    }
+}
