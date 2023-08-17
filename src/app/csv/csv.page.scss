@@ -1,0 +1,92 @@
+/* Apply styling for the entire grid */
+ion-grid {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  /* Apply styling for table header */
+  .table-header {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Apply styling for table rows */
+  .table-row {
+    text-align: center;
+    border-bottom: 1px solid transparent;
+  }
+  
+  /* Add hover effect for rows */
+  .table-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+
+
+
+  .custom-col {
+    border: 1px solid black;
+    width: calc(100% / 5); /* Adjust the number of columns as needed */
+    box-sizing: border-box;
+    text-align: center;
+    float: left; /* Add this property to make columns float next to each other */
+  }
+  
+  /* Clear float after each row */
+  .ion-item::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  ion-loading.custom-loading {
+    --background: #e3edff;
+    --spinner-color: #1c6dff;
+  
+    color: #1c6dff;
+  }
+  
+  #container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  #icon, #loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3498db; /* Change to your icon's color */
+    border-radius: 50%;
+  }
+  
+  #loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .selected {
+    background-color: rgba(7, 212, 0, 0.695); /* Set the desired background color */
+  }
+  .blueBackground {
+    background-color: rgb(210, 210, 210); /* Set the desired blue color */
+  }
+  .selected {
+    background-color: rgba(7, 212, 0, 0.695); /* Set the desired background color */
+  }
+  .blueBackground {
+    background-color:rgb(210, 210, 210);
+    color: #5a5a5a; /* Set the desired blue color */
+  }
+  
+  
