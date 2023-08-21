@@ -89,7 +89,11 @@ const routes: Routes = [
   {
     path: 'add-department-or-course',
     loadChildren: () => import('./add-department-or-course/add-department-or-course.module').then( m => m.AddDepartmentOrCoursePageModule)
+  },  {
+    path: 'view-marks',
+    loadChildren: () => import('./view-marks/view-marks.module').then( m => m.ViewMarksPageModule)
   },
+
 
 
 

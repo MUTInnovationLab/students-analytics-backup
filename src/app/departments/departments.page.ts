@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { department} from 'src/app/module/Department.mode';
-import { ModalController, NavController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
 import { AddDepartmentOrCoursePage } from '../add-department-or-course/add-department-or-course.page';
 
 @Component({
@@ -38,7 +38,8 @@ export class DepartmentsPage implements OnInit {
   ];
 
   color: String='brown';
-  constructor(private navCtrl: NavController,private modalController: ModalController) { }
+  constructor(private navCtrl: NavController,private modalController: ModalController,
+    private menuCtrl: MenuController) { }
 
   ngOnInit() {
    
@@ -88,5 +89,11 @@ async presentAddDepartmentModal() {
     component:AddDepartmentOrCoursePage, // Use your CourseModalComponent here
   });
   return await modal.present();
+}
+
+openMenu() {
+  // Open the menu by menu-id
+  this.menuCtrl.enable(true, 'main-menu');
+  this.menuCtrl.open('main-menu');
 }
 }

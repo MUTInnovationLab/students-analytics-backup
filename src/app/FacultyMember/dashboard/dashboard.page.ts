@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-  import { NavController } from '@ionic/angular';
+  import { MenuController, NavController } from '@ionic/angular';
   import { Router } from '@angular/router';
   
 
@@ -17,7 +17,8 @@ export class DashboardPage implements OnInit {
   department: string = "Information Communication Technology"
     constructor(
       private navCtrl: NavController,
-      private router: Router
+      private router: Router,
+      private menuCtrl: MenuController
     ) {}
   ngOnInit(){
 
@@ -62,6 +63,13 @@ export class DashboardPage implements OnInit {
       // Navigate to the Student Profile page
       this.router.navigate(['/student-profile']);
     }
+    
+    
+  openMenu() {
+    // Open the menu by menu-id
+    this.menuCtrl.enable(true, 'lecturerMenu');
+    this.menuCtrl.open('lecturerMenu');
+  }
   }
   
 

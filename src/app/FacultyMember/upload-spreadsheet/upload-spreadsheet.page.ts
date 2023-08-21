@@ -160,6 +160,7 @@ export class UploadSpreadsheetPage implements OnInit {
       })
     ).subscribe();
   }
+  
   align() {
     this.studentDetails = []; // Initialize the studentDetails array
     this.studentMarks = [];  // Initialize the studentMarks array

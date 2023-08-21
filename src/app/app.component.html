@@ -40,5 +40,50 @@
       </ion-item>
      </ion-list>
    </ion-menu>
+
+
+
+   <ion-menu menuId="lecturerMenu" content-id="main-content">
+    <ion-list>
+    <ion-item color="primary" >
+            
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    <ion-grid>
+   <ion-row >
+    <ion-label style="margin-left:-1%;font-size: large;"> Doe John</ion-label>
+  </ion-row>
+  <ion-row>
+    <ion-label>example@gmail.com</ion-label>
+  </ion-row>
+</ion-grid> 
+ </ion-item>
+ <ion-item-divider></ion-item-divider>
+
+  <ion-item href="/dashboard">
+    <ion-icon name="grid-outline" slot="start"></ion-icon>
+    Dashboard
+  </ion-item>
+  <ion-item href="upload-spreadsheet">
+    <ion-icon name="cloud-upload-outline" slot="start"></ion-icon> 
+    Upload SpeadSheet
+  </ion-item>
+  <ion-item href="/view-marks">
+    <ion-icon name="book-outline" slot="start"></ion-icon>
+   View Marks
+  </ion-item>
+  <ion-item href="/add-mentor">
+    <ion-icon name="person-add-outline" slot="start"></ion-icon>
+    Add Mentor
+  </ion-item>
+  <ion-item href="/login" >
+    <ion-icon name="log-out-outline" slot="start"></ion-icon>
+    Logout
+  </ion-item>
+</ion-list>
+
+   </ion-menu>
   <ion-router-outlet id="main-content"></ion-router-outlet>
+  
 </ion-app>

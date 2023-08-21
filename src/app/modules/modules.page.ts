@@ -7,7 +7,10 @@ import { Subjects} from 'src/app/module/modules.mode';
   styleUrls: ['./modules.page.scss'],
 })
 export class ModulesPage implements OnInit {
-
+  lecturers: string[] = ['Dr RF Chidzonga', 'Mr N Ndlela', 'Prof B Bakare'];
+  selectedLecturer: string = '';
+  selectedYear: string ='';
+  Years: string[] =['ECP','First Year','Second Year', 'Third Year', 'Forth Year','Advance'];
   subjects: Subjects[] = [
     {
       name: 'Introduction to Computer Science',
@@ -45,7 +48,24 @@ export class ModulesPage implements OnInit {
       year: 'Fifth Year',
     },
   ];
+  name: string = '';
+  subjectCode: string = '';
+  description: string = '';
+  //lecturer: string = '';
+  year: number = 0; // Assuming 'year' is a number
 
+  addSubject() {
+    // Use this.name, this.subjectCode, this.description, this.lecturer, this.year for your logic
+    // For example, push to an array, send to API, etc.
+    console.log('New subject data:', this.name, this.subjectCode, this.description, this.lecturers, this.year);
+    // After adding, reset the input fields
+    this.name = '';
+    this.subjectCode = '';
+    this.description = '';
+    //this.lecturer = '';
+    //this.year = null;
+  }
+  showCard: boolean =false;
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {
@@ -53,4 +73,14 @@ export class ModulesPage implements OnInit {
   closeModal() {
     this.modalController.dismiss();
   }
+toggleCard(){
+
+  if(this.showCard===false){
+    this.showCard = true;
+  }
+  else if(this.showCard){
+    this.showCard=false;
+  }
+
+}
 }
