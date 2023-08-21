@@ -90,3 +90,15 @@ ion-grid {
   }
   
   
+  input {
+    width:40px;
+  }
+
+
+  @media (max-width: 1068px) {
+    .upload-btn{
+ width: 90%;
+    }
+  
+ 
+  }
