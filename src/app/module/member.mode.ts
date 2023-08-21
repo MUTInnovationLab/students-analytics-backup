@@ -6,3 +6,13 @@ export interface Member{
     role:string;
     uid: string
 }
+export interface  register{
+    name: '',
+    surname: '',
+    password: '',
+    email: '',
+    role: '',
+    uid: '',
+    faculty: '', // New field
+    staffNumber: '' // New field
+  };
