@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import {DataService} from '../shared/data.service';
+import {UsersService} from '../shared/users.service';
 
 @Component({
   selector: 'app-add-department-or-course',
@@ -19,8 +21,12 @@ export class AddDepartmentOrCoursePage implements OnInit {
   newDepartment: string = '';
   selectedDepartment: string = '';
   departments: string[] = ['HR', 'Finance', 'IT', 'Marketing'];
+  department_Name: string='';
+  department_Abbreviation: string='';
+  department_Description: string='';
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController,
+    private data: DataService) {}
 
   ngOnInit() {
   }
@@ -29,8 +35,10 @@ export class AddDepartmentOrCoursePage implements OnInit {
   courses: any[] = [];
 
   addCourse() {
-    if ((this.selectedDepartment || this.newDepartment) && this.courseName && this.newCourseAbbreviation && this.newCourseModules && this.newCourseCredits && this.newCourseDescription) {
+    // (this.selectedDepartment || this.newDepartment) &&
+    if ( this.courseName && this.newCourseAbbreviation && this.newCourseModules && this.newCourseCredits && this.newCourseDescription) {
       const course = {
+        department: this.department_Abbreviation,
         name: this.courseName,
         abbreviation: this.newCourseAbbreviation,
         modules: this.newCourseModules,
@@ -38,12 +46,16 @@ export class AddDepartmentOrCoursePage implements OnInit {
         description: this.newCourseDescription
       };
       this.courses.push(course);
-      // Clear input fields after adding a course
+      this.data.addCourse(course);
+      
       this.courseName = '';
       this.newCourseAbbreviation = '';
       this.newCourseModules = '';
       this.newCourseCredits = '';
       this.newCourseDescription = '';
+    }
+    else{
+      alert('All fields are reqiured');
     }
   }
 
@@ -55,5 +67,28 @@ export class AddDepartmentOrCoursePage implements OnInit {
   closeModal() {
     this.modalController.dismiss();
   }
+
+  add_department(){
+      if(this.department_Name!=='',this.department_Abbreviation!=='',this.department_Description!==''){
+        const departmentData = {
+        department_Name: this.department_Name,
+        department_Abbreviation: this.department_Abbreviation,
+        department_Description: this.department_Description,
+        uid:''
+      };
+
+      if(this.showAddDepartment){
+        this.addCourse();
+      }
+    
+      this.data.addDepartment(departmentData);
+      alert('Successfully');
+}
+
+  else{
+    alert('All fields are required');
+
+  }
+}
 }
 

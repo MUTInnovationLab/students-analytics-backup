@@ -22,5 +22,12 @@ export class DataService {
   getAllStudents(): Observable<Student[]> {
     return this.firestore.collection<Student>('students').valueChanges();
   }
+
+  addDepartment(data: any){
+    return this.firestore.collection('departments').doc(data.department_Abbreviation).set(data);
+  }
+  addCourse(data: any){
+    return this.firestore.collection('courses').doc(data.abbreviation).set(data);
+  }
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course} from 'src/app/module/course.mode';
 import { MenuController, ModalController } from '@ionic/angular';
 import { ModulesPage } from '../modules/modules.page'; // Adjust the path
+import { AddDepartmentOrCoursePage } from '../add-department-or-course/add-department-or-course.page';
 
 @Component({
   selector: 'app-courses',
@@ -55,7 +56,12 @@ export class CoursesPage implements OnInit {
     return await modal.present();
   }
 
-
+  async presentAddDepartmentModal() {
+    const modal = await this.modalController.create({
+      component:AddDepartmentOrCoursePage, // Use your CourseModalComponent here
+    });
+    return await modal.present();
+  }
   openMenu() {
     // Open the menu by menu-id
     this.menuCtrl.enable(true, 'main-menu');
