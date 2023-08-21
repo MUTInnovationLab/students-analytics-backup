@@ -5,6 +5,59 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="custom-modal-content">
+  <ion-item class=".search" color="dark">
+    <ion-searchbar class="custom-searchbar" placeholder="Search the Module"></ion-searchbar>
+    <ion-buttons >
+      <ion-button  size="medium" fill="outline" color="secondary">
+        Search
+        <!-- <ion-icon style="font-size: 25px;" name="search-outline"></ion-icon> -->
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button size="medium" fill="clear" color="secondary" (click)="toggleCard()">
+        <ion-icon size="large" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-card class="cards" *ngIf="showCard===true">
+    <ion-card-header>
+      <ion-card-title>Add New Subject</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Subject Name</ion-label>
+        <ion-input [(ngModel)]="name" name="name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Subject Code</ion-label>
+        <ion-input [(ngModel)]="subjectCode" name="subjectCode" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-input [(ngModel)]="description" name="description"></ion-input>
+      </ion-item>
+     
+
+      <ion-item>
+        <ion-label>Select Lecturer:</ion-label>
+        <ion-select [(ngModel)]="selectedLecturer">
+          <ion-select-option *ngFor="let lecturer of lecturers" [value]="lecturer">{{ lecturer }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Select Year:</ion-label>
+        <ion-select [(ngModel)]="selectedYear">
+          <ion-select-option *ngFor="let year of Years" [value]="year">{{ year }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+     
+      <!-- Add more input fields for other subject details -->
+      <ion-button expand="full" (click)="addSubject()">Add Subject</ion-button>
+    </ion-card-content>
+  </ion-card>
+
   <!-- <div style="background-color: #333;height:200%;width: 100%;"> -->
   <ion-card class="card" *ngFor="let subject of subjects">
     <h1  style="font-size:25px;font-weight: bold;font-family: 'Times New Roman', Times, serif;">{{ subject.name }}</h1>
@@ -17,3 +70,7 @@
   </ion-card>
 <!-- </div> -->
 </ion-content>
+
+
+
+  

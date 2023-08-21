@@ -22,5 +22,8 @@ export class DataService {
   getAllStudents(): Observable<Student[]> {
     return this.firestore.collection<Student>('students').valueChanges();
   }
+
+
+  
 }
 

@@ -6,7 +6,7 @@
        DEPARTMENT OF ICT
     </ion-title>
     <ion-buttons slot="end">
-      <ion-menu-button color=light>
+      <ion-menu-button color=light (click)="openMenu()">
 
       </ion-menu-button>
     </ion-buttons>
@@ -39,7 +39,7 @@
           <ion-col class="custom-col" size="3">Description</ion-col>
           <ion-col class="custom-col" size="1.5">View Modules</ion-col>
         </ion-row>
-        <ion-row class="data-row" *ngFor="let course of courses; let i = index;" (click)="viewCourses(course.numberOfModules)">
+        <ion-row class="data-row" *ngFor="let course of courses; let i = index;" (click)="openModal()">
           
           <ion-col class="custom-col" size="1.5">{{ course.abbreviation }}</ion-col>
           <ion-col class="custom-col" size="3">{{ course.name }}</ion-col>

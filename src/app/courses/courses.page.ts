@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course} from 'src/app/module/course.mode';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { ModulesPage } from '../modules/modules.page'; // Adjust the path
 
 @Component({
@@ -34,7 +34,8 @@ export class CoursesPage implements OnInit {
     }
   ];
   
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,
+    private menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
@@ -55,7 +56,11 @@ export class CoursesPage implements OnInit {
   }
 
 
-  
+  openMenu() {
+    // Open the menu by menu-id
+    this.menuCtrl.enable(true, 'main-menu');
+    this.menuCtrl.open('main-menu');
+  }
   
   
   

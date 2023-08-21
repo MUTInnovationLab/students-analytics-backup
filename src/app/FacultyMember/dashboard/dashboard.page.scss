@@ -20,6 +20,9 @@ ion-card {
     .desktop-only {
         display: none; /* Show the column only on mobile view */
       }
+      .mobile-Only{
+        display: contents !important;
+      }
       #desktop-button {
         display: block; /* Show the button for desktop-sized screens */
     }
@@ -40,11 +43,11 @@ ion-card {
         font-size: 150px; /* Increase icon size for desktop screens */
     
       } 
+    
     }
-    
-   
-    
-   
+    }
+    .mobile-Only{
+      display: none;
     }
   .container{
     display:flex;
@@ -52,7 +55,50 @@ ion-card {
     height: 100vh;
   
 }
+ion-list{
+  width: 325px;
+ }
 
+
+.data-row:hover{
+  background-color: #333;
+  color: white !important;
+}
+
+ion-card{
+  --ion-background-color:#333;
+  color:rgb(192, 190, 190);
+}
+ion-card:hover{
+  --ion-background-color:rgb(192, 190, 190);
+  color:#8d2c2c;
+}
+.desktop-only {
+  --ion-background-color: rgb(216, 216, 216) !important;/* Show the column only on mobile view */
+}
+.custom-card {
+  background-color: #2c3e50;
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size:medium;
+}
+
+
+.custom-card:hover  {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  background-color: rgb(89, 89, 89);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
     
   
