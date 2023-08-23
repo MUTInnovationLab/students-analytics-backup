@@ -20,12 +20,19 @@ export class AdminDashboardPage implements OnInit {
   membersSubscription: Subscription | undefined;
   studentsSubscription: Subscription | undefined;
 
-  constructor(private data: DataService, private menuCtrl: MenuController, private firestore: AngularFirestore) {
+  constructor(private data: DataService, private menuCtrl: MenuController,
+     private firestore: AngularFirestore) {
     this.getInitialData();
   }
  async ngOnInit(){
  
  }
+
+ openMenu() {
+  this.menuCtrl.enable(true, 'main-menu');
+  this.menuCtrl.open('main-menu');
+}
+
 
 async getInitialData() {
   await Promise.all([this.getUserDoc(), this.getNumberOfMembers(), this.getNumberOfStudents()]);
@@ -44,7 +51,7 @@ async getInitialData() {
 
   async getNumberOfMembers() {
     try {
-      const querySnapshot = await this.firestore.collection('registered').valueChanges();
+      const querySnapshot = await  this.data.getAllMembers();
       this.membersSubscription = querySnapshot.subscribe((number: any[]) => {
         this.numberOfMembers = number.length;
         console.log('Number of Member documents:', this.numberOfMembers);
@@ -56,7 +63,7 @@ async getInitialData() {
 
   async getNumberOfStudents() {
     try {
-      const querySnapshot = this.firestore.collection('students').valueChanges();
+      const querySnapshot =  this.data.getAllStudents();
       this.studentsSubscription = querySnapshot.subscribe((number: any[]) => {
         this.numberOfStudents = number.length;
         console.log('Number of student documents:', number.length);
@@ -65,12 +72,7 @@ async getInitialData() {
       console.error('Error getting user documents:', error);
     }
   }
-  openMenu() {
-    // Open the menu by menu-id
-    
-    this.menuCtrl.enable(true, 'main-menu');
-    this.menuCtrl.open('main-menu');
-  }
+
   ngOnDestroy() {
     if (this.membersSubscription) {
       this.membersSubscription.unsubscribe();

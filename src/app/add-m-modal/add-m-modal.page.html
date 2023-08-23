@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="content-container">
-  <ion-title class="title center-title" style="margin-top: 20px; margin-bottom: 20px;"></ion-title>
+  <ion-title class="title center-title" style="margin-top: 10px; margin-bottom: 20px;"></ion-title>
 
   <ion-content class="ion-padding">
     <div class="ion-text-center">
@@ -23,8 +23,21 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating">Faculty</ion-label>
-          <ion-input type="text" [(ngModel)]="member.faculty" style="max-width: 200px;"></ion-input>
+          <ion-input type="text" [(ngModel)]="member.department" style="max-width: 200px;"></ion-input>
         </ion-item>
+
+        <ion-item>
+          <ion-label>Department</ion-label>
+          <ion-select [(ngModel)]="member.department">
+            <ion-select-option *ngFor="let departs of departments; let i=index;" value="{{ departs.department_Name }}">
+              {{ departs.department_Name }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+
+
+
         <ion-item>
           <ion-label>Role</ion-label>
           <ion-select [(ngModel)]="member.role">
