@@ -44,7 +44,7 @@
       </ion-card>
     </div>
     <div style="display: flex; justify-content: center;">
-      <ion-button size="medium" color="primary" (click)="create()">Create</ion-button>
+      <ion-button size="medium" color="primary" (click)="create()">{{passedData ? "Update" : "Create"}}</ion-button>
     </div>
   </ion-content>
 </ion-content>

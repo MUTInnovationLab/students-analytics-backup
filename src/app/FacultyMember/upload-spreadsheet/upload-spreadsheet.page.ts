@@ -2,7 +2,7 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { Student } from 'src/app/module/student.mode';
 import { DataService } from 'src/app/shared/data.service';
 import { finalize } from 'rxjs/operators';
-
+import * as XLSX from 'xlsx'
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { LoadingController, NavController } from '@ionic/angular';
 
@@ -12,7 +12,8 @@ import { LoadingController, NavController } from '@ionic/angular';
   styleUrls: ['./upload-spreadsheet.page.scss'],
 })
 export class UploadSpreadsheetPage implements OnInit {
-  selectedFile: File | null = null;
+  ContentsOfFile: any[]=[];
+  selectedFile: any;
   uploadPercent: number = 0;
   downloadURL: string | null = null;
   pdfContent: string = '';
@@ -91,10 +92,19 @@ export class UploadSpreadsheetPage implements OnInit {
     // Programmatically trigger a click event on the hidden file input
     this.fileInput.nativeElement.click();
   }
+  
   onFileChange(event: any) {
-    this.selectedFile = event.target.files[0];
-    this.name=this.selectedFile?.name;
+    // this.selectedFile = event.target.files[0];
+    // this.name=this.selectedFile?.name;
+
+    this.selectedFile = event.target as HTMLInputElement;
     
+
+
+
+   // Extract the file name
+
+
     if(!this.selectedFile)
     {
       this.found = false;
@@ -103,41 +113,36 @@ export class UploadSpreadsheetPage implements OnInit {
     if(this.selectedFile){
       this.found=true;
       this.disableButton=false;
+      this.readAndUploadFileContent();
     }
+
+    
     
   }
+  readAndUploadFileContent() {
+   
+   
+    if (this.selectedFile.files && this.selectedFile.files.length > 0) {
+      const file = this.selectedFile.files[0];
+      this.name = file.name;
+      const reader = new FileReader();
 
-  readAndUploadFileContent(file: File) {
-    const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = e.target?.result as string;
+        const workbook = XLSX.read(data, { type: 'binary' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        this.ContentsOfFile = XLSX.utils.sheet_to_json(sheet);
+      };
 
-    reader.onload = (event) => {
-      this.pdfContent = event.target?.result as string;
-
-
-      const linesArray = this.pdfContent.split('\n').filter(line => line.trim() !== '');
-      for (const line of linesArray) {
-        console.log(line);
-        console.error('-------------------------------------------------')
-      }
-
-      const arrayOfArrays = linesArray.map(line => line.split(','));
-      this.array=arrayOfArrays;
-      console.log(this.array[0][3]);
-
-
-      //console.log('File Content:', this.pdfContent);
-      // Proceed to upload the file after reading
-      this.align();
-      this.uploadFile(file);
-    };
-
-    reader.readAsText(file);
+      reader.readAsBinaryString(file);
+    }
   }
-
+  
   uploadMarks() {
     if (this.selectedFile) {
       // Read the content of the selected file before uploading
-      this.readAndUploadFileContent(this.selectedFile);
+      this.  onFileChange(this.selectedFile);
     }
   }
 
@@ -147,7 +152,7 @@ export class UploadSpreadsheetPage implements OnInit {
     const uploadTask = this.storage.upload(filePath, file);
 
     // Observe the upload progress
-    uploadTask.percentageChanges().subscribe((percent) => {
+    uploadTask.percentageChanges().subscribe((percent: any) => {
       this.uploadPercent = percent || 0;
     });
 
@@ -160,6 +165,8 @@ export class UploadSpreadsheetPage implements OnInit {
       })
     ).subscribe();
   }
+  
+
   
   align() {
     this.studentDetails = []; // Initialize the studentDetails array
