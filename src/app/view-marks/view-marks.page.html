@@ -10,4 +10,58 @@
       <ion-title size="large">view-marks</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <p class="ion-text-center">Studends Marks</p>
+  
+    <ion-card class="table-card">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="header-row">
+            <ion-col size="3">Name</ion-col>
+            <ion-col size="3">Surname</ion-col>
+            <ion-col size="3">Module</ion-col>   
+            <ion-col size="3">Marks</ion-col>        
+          </ion-row>
+  
+          <ion-row >
+            <ion-col size="3" class="ion-text-center">Lindani </ion-col>
+            <ion-col size="3" class="ion-text-center">Bhuyeni</ion-col>
+            <ion-col size="3" class="ion-text-center">Software Development</ion-col>
+            <ion-col size="2" class="ion-text-center">67</ion-col>
+            <ion-col size="1">
+            </ion-col>
+            <ion-col size="3" class="ion-text-center">Samuel </ion-col>
+            <ion-col size="3" class="ion-text-center">Griffith</ion-col>
+            <ion-col size="3" class="ion-text-center">Software Development</ion-col>
+            <ion-col size="2" class="ion-text-center">67</ion-col>
+            <ion-col size="1" >
+            </ion-col>
+          </ion-row>
+          
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  
+  
+  
+        <ion-grid class="table-card-mobile">
+          <ion-row *ngFor="let item of tableData">
+            <ion-col size="12">
+              <ion-card class="data-card">
+                <ion-card-header>
+                  <ion-card-title>{{ item.name }} {{ item.surname }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>Email: {{ item.email }}</p>
+                  <p>Course: {{ item.course }}</p>
+                </ion-card-content>
+              <ion-item>
+                  <ion-button size="small" fill="clear">Edit</ion-button>
+                  <ion-button size="small" fill="clear">Delete</ion-button>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
 </ion-content>
