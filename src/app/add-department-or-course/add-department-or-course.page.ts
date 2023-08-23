@@ -53,7 +53,7 @@ conditionValue = 'course'; // The value to check against
   ngOnInit() {
     this.value = this.navParams.get('initialValue'); // Get the passed value from Page 1
     if(this.value  !== undefined){
-      alert(this.value);
+      
       this.showAddDepartment = true;
     }
   }

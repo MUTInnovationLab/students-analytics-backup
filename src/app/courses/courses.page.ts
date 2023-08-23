@@ -32,7 +32,7 @@ export class CoursesPage implements OnInit {
       this.department = params['course'];
     });
     this.getCoursesWithSpecificCategory();
-    alert(this.department);
+    
   }
   
 

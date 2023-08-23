@@ -15,11 +15,15 @@ export class DepartmentsPage implements OnInit {
 
 
   color: String='brown';
-  constructor(private navCtrl: NavController,private modalController: ModalController,
+
+  constructor(private navCtrl: NavController,
+
+    private modalController: ModalController,
     private menuCtrl: MenuController,
-    private data: DataService) { }
+    private data: DataService) { this.loadDepartments();
+    }
     ngOnInit() {
-      this.loadDepartments();
+     
     }
   
     loadDepartments() {
@@ -33,41 +37,49 @@ export class DepartmentsPage implements OnInit {
  
 
 viewCourses(value: string){
-  alert('Viewed'+value);
+  
   this.navCtrl.navigateForward('/courses', {
     queryParams: { course: value},
   });
   
 }
 
-getRandomColor(type: 'dark' | 'light') {
-  const randomColorChannel = () => Math.floor(Math.random() * 256);
-  
-  if (type === 'dark') {
-    let color = `rgb(${randomColorChannel()}, ${randomColorChannel()}, ${randomColorChannel()})`;
-    while (this.calculateLuminance(color) > 0.6) {
-      color = `rgb(${randomColorChannel()}, ${randomColorChannel()}, ${randomColorChannel()})`;
-    }
-    return color;
-  } else if (type === 'light') {
-    let color = `rgb(${randomColorChannel()}, ${randomColorChannel()}, ${randomColorChannel()})`;
-    while (this.calculateLuminance(color) < 0.6) {
-      color = `rgb(${randomColorChannel()}, ${randomColorChannel()}, ${randomColorChannel()})`;
-    }
-    return color;
-  }
+getRandomColor(type: 'dark' | 'light'): string {
+  try {
+    const randomColorChannel = () => Math.floor(Math.random() * 256);
+    let color;
 
-  return 'rgb(0, 0, 0)'; // Default to black if type is neither 'dark' nor 'light'
+    if (type === 'dark') {
+      do {
+        color = `rgb(${randomColorChannel()}, ${randomColorChannel()}, ${randomColorChannel()})`;
+      } while (this.calculateLuminance(color) > 0.6);
+    } else if (type === 'light') {
+      do {
+        color = `rgb(${randomColorChannel()}, ${randomColorChannel()}, ${randomColorChannel()})`;
+      } while (this.calculateLuminance(color) < 0.6);
+    } else {
+      // Default to black if type is neither 'dark' nor 'light'
+      color = 'rgb(0, 0, 0)';
+    }
+
+    return color;
+  } catch (error) {
+    console.error('An error occurred:', error);
+    return 'rgb(0, 0, 0)';
+  }
 }
 
-calculateLuminance(color: string) {
+calculateLuminance(color: string): number {
   const rgb = color.match(/\d+/g);
   if (rgb) {
-  const luminance = (0.299 * +rgb[0] + 0.587 * +rgb[1] + 0.114 * +rgb[2]) / 255;
-  return luminance;
+    const luminance = (0.299 * +rgb[0] + 0.587 * +rgb[1] + 0.114 * +rgb[2]) / 255;
+    return luminance;
+  }
+  return 0;
 }
-return 0;
-}
+
+  
+
 
 
 async presentAddDepartmentModal() {

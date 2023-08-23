@@ -3,16 +3,14 @@
 <ion-header>
   <ion-toolbar color=black style="background-color: #8d2c2c;">
     <ion-title style="text-align: center;font-weight: bolder;color:white;">
-       DEPARTMENT OF ICT
+       DEPARTMENT OF {{department}}
     </ion-title>
     <ion-buttons slot="end">
       <ion-menu-button color=light (click)="openMenu()">
-
       </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-item class="btn-for-table">
    <ion-button fill="clear" href="/departments"> <ion-icon color='light' class="hideIcon" name="chevron-back-outline" ></ion-icon>
