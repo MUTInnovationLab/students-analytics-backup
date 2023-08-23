@@ -65,6 +65,11 @@ export class DashboardPage implements OnInit {
     }
     
     
+    navigateToModulesPage() {
+      // Navigate to the Student Profile page
+      this.router.navigate(['/modules']);
+    }
+    
   openMenu() {
     // Open the menu by menu-id
     this.menuCtrl.enable(true, 'lecturerMenu');

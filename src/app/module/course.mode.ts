@@ -1,8 +1,8 @@
 export interface Course
 {
-    name: String;
-    abbreviation: String;
-    numberOfModules: number;
+    name: string;
+    abbreviation: string;
+    modules: number;
     credits: number;
     description: string; 
 

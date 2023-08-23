@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-marks.page.scss'],
 })
 export class ViewMarksPage implements OnInit {
-
+  tableData: any[] = [];
   constructor() { }
 
   ngOnInit() {

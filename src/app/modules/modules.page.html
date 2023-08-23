@@ -28,27 +28,27 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Subject Name</ion-label>
-        <ion-input [(ngModel)]="name" name="name" required></ion-input>
+        <ion-input [(ngModel)]="subject.name" name="name" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Subject Code</ion-label>
-        <ion-input [(ngModel)]="subjectCode" name="subjectCode" required></ion-input>
+        <ion-input [(ngModel)]="subject.subjectCode" name="subjectCode" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Description</ion-label>
-        <ion-input [(ngModel)]="description" name="description"></ion-input>
+        <ion-input [(ngModel)]="subject.description" name="description"></ion-input>
       </ion-item>
      
 
       <ion-item>
         <ion-label>Select Lecturer:</ion-label>
-        <ion-select [(ngModel)]="selectedLecturer">
+        <ion-select [(ngModel)]="subject.lecturer">
           <ion-select-option *ngFor="let lecturer of lecturers" [value]="lecturer">{{ lecturer }}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Select Year:</ion-label>
-        <ion-select [(ngModel)]="selectedYear">
+        <ion-select [(ngModel)]="subject.year">
           <ion-select-option *ngFor="let year of Years" [value]="year">{{ year }}</ion-select-option>
         </ion-select>
       </ion-item>

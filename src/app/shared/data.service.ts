@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Student } from 'src/app/module/student.mode';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-
+import { department } from 'src/app/module/Department.mode';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +23,19 @@ export class DataService {
   getAllStudents(): Observable<Student[]> {
     return this.firestore.collection<Student>('students').valueChanges();
   }
+  getAllDept(): Observable<department[]> {
+    return this.firestore.collection<department>('Departments').valueChanges();
+  }
+  
+  addDepartment(data: any){
+    return this.firestore.collection('Departments').doc(data.department_Abbreviation).set(data);
+  }
+  addCourse(data: any){
+    return this.firestore.collection('Courses').doc(data.abbreviation).set(data);
+  }
+  addModule(data: any){
+    return this.firestore.collection('Modules').doc(data.subjectCode).set(data);
+  }
 
   async getCurrentUserEmail(): Promise<string | null> {
     const user = await this.auth.currentUser;
@@ -30,6 +43,6 @@ export class DataService {
   }
 
 
-  
+
 }
 
