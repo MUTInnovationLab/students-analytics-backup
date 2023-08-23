@@ -1,8 +1,7 @@
 export interface department{
-    name: String;
+    department_Name: string;
+    department_Abbreviation: string;
+    department_Description: string;
     numberOfCourses: number;
-    purpose: String;
-    abbreviation: String;
     InceptionDate: String;
-    uid:String;
 }

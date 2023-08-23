@@ -17,7 +17,7 @@
   <ion-item class="btn-for-table">
    <ion-button fill="clear" href="/departments"> <ion-icon color='light' class="hideIcon" name="chevron-back-outline" ></ion-icon>
    </ion-button>
-   <ion-button fill="clear" (click)="openModal()">
+   <ion-button fill="clear">
    <ion-icon color='light' class="hideIcon" name="chevron-forward-outline"></ion-icon>
   </ion-button><ion-searchbar class="custom-searchbar" placeholder="Search the Course"></ion-searchbar>
     <ion-buttons slot="end">
@@ -39,15 +39,15 @@
           <ion-col class="custom-col" size="3">Description</ion-col>
           <ion-col class="custom-col" size="1.5">View Modules</ion-col>
         </ion-row>
-        <ion-row class="data-row" *ngFor="let course of courses; let i = index;" (click)="openModal()">
+        <ion-row class="data-row" *ngFor="let course of courses; let i = index;" (click)="openModal(course.abbreviation )">
           
           <ion-col class="custom-col" size="1.5">{{ course.abbreviation }}</ion-col>
           <ion-col class="custom-col" size="3">{{ course.name }}</ion-col>
-          <ion-col class="custom-col" size="1">{{ course.numberOfModules }}</ion-col>
+          <ion-col class="custom-col" size="1">{{ course.modules }}</ion-col>
           <ion-col class="custom-col" size="2">{{ course.credits }}</ion-col>
           <ion-col class="custom-col" size="3">{{course.description}}</ion-col>
           <ion-col class="custom-col" size="1.5">
-            <ion-button fill="clear" (click)="openModal()">View</ion-button>
+            <ion-button fill="clear">View</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -59,7 +59,7 @@
 <ion-grid class="table-card-mobile">
   <ion-row *ngFor="let course of courses">
     <ion-col size="12">
-      <ion-card class="data-card" (click)="openModal()">
+      <ion-card class="data-card" (click)="openModal(course.abbreviation)">
         <ion-item>
           <ion-card-header class="hidden">
             <div  style="background-color:#8d2c2c; width: 150px; height: 150px; text-align: center; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
@@ -68,7 +68,7 @@
           </ion-card-header>
           <ion-card-content>
             <h1 style="font-weight: bold; font-size: 20px; font-style: italic;">{{course.name}}</h1>
-            <p class="mobile-only">Number of Modules: {{ course.numberOfModules }}</p>
+            <p class="mobile-only">Number of Modules: {{ course.modules }}</p>
             <p>Credits: {{ course.credits }}</p>
           </ion-card-content>
         </ion-item>

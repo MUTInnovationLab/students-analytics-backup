@@ -35,13 +35,13 @@
       <ion-col class="custom-col" size=3>Description</ion-col>
       <ion-col class="custom-col" size=1.5>View Courses</ion-col>
     </ion-row>
-      <ion-row class="data-row"  *ngFor="let departs of departments; let i=index;" (click)="viewCourses(departs.numberOfCourses)">
-        <ion-col class="custom-col" size=3>{{ departs.name }}</ion-col>
-        <ion-col class="custom-col" size=1.5>{{departs.abbreviation}}</ion-col>
+      <ion-row class="data-row"  *ngFor="let departs of departments; let i=index;" (click)="viewCourses(departs.department_Abbreviation)">
+        <ion-col class="custom-col" size=3>{{ departs.department_Name }}</ion-col>
+        <ion-col class="custom-col" size=1.5>{{departs.department_Abbreviation}}</ion-col>
        
         <ion-col class="custom-col" size=1>{{ departs.numberOfCourses }}</ion-col>
         <ion-col class="custom-col" size=2>{{ departs.InceptionDate}}</ion-col>
-        <ion-col class="custom-col" size=3>{{ departs.purpose }}</ion-col>
+        <ion-col class="custom-col" size=3>{{ departs.department_Description }}</ion-col>
         <ion-col class="custom-col" size="1.5">
           
           <ion-button fill="clear">view</ion-button>
@@ -54,18 +54,18 @@
       <ion-grid class="table-card-mobile">
         <ion-row *ngFor="let departs of departments">
           <ion-col size="12">
-            <ion-card   class="data-card" (click)="viewCourses(departs.numberOfCourses)">
+            <ion-card   class="data-card" (click)="viewCourses(departs.department_Abbreviation)">
          <ion-item >
               <ion-card-header class="hidden">
                 <div   [style.background]="getRandomColor('dark') " style="width: 150px; height: 150px; text-align: center; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                  <h2 style="margin: 0;" [style.color]="getRandomColor('light')">{{departs.abbreviation}}</h2>
+                  <h2 style="margin: 0;" [style.color]="getRandomColor('light')">{{departs.department_Abbreviation}}</h2>
                 </div>
               </ion-card-header>
               <ion-card-content >
-                <h1 style="font-weight: bold;font-size:20px;font-style: italic;">{{departs.name}}</h1>
+                <h1 style="font-weight: bold;font-size:20px;font-style: italic;">{{departs.department_Name}}</h1>
                 <p class="mobile-only">Inception Date: {{ departs.InceptionDate}}</p>
                 <p>Number of Courses: {{ departs.numberOfCourses}} </p>
-                <p>{{departs.purpose}}</p>
+                <p>{{departs.department_Description}}</p>
               </ion-card-content>
               </ion-item>
             </ion-card>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 import {DataService} from '../shared/data.service';
 import {UsersService} from '../shared/users.service';
+import { department} from '../module/Department.mode'
 
 @Component({
   selector: 'app-add-department-or-course',
@@ -21,22 +22,52 @@ export class AddDepartmentOrCoursePage implements OnInit {
   newDepartment: string = '';
   selectedDepartment: string = '';
   departments: string[] = ['HR', 'Finance', 'IT', 'Marketing'];
+  Inception: string='';
   department_Name: string='';
   department_Abbreviation: string='';
   department_Description: string='';
+  initialValue!:boolean;
+  InceptionDate: Date = new Date();
+
+  dept: department={
+    department_Name:'',
+    department_Abbreviation:'',
+    department_Description:'',
+    numberOfCourses: 0,
+    InceptionDate:'',
+}
+
+value: string = ''; // Replace with the actual property you have
+conditionValue = 'course'; // The value to check against
+
+
+ 
+  hideCard = true;
+  toggleDisabled = false; 
+  hide!:boolean;
 
   constructor(private modalController: ModalController,
-    private data: DataService) {}
-
+    private data: DataService,
+    private navParams: NavParams,
+) {}
   ngOnInit() {
+    this.value = this.navParams.get('initialValue'); // Get the passed value from Page 1
+    if(this.value  !== undefined){
+      alert(this.value);
+      this.showAddDepartment = true;
+    }
   }
 
   newCourse: any;
   courses: any[] = [];
 
   addCourse() {
-    // (this.selectedDepartment || this.newDepartment) &&
+ 
     if ( this.courseName && this.newCourseAbbreviation && this.newCourseModules && this.newCourseCredits && this.newCourseDescription) {
+      if(this.value  !== undefined){
+        this.department_Abbreviation =this.value;
+       }
+    
       const course = {
         department: this.department_Abbreviation,
         name: this.courseName,
@@ -69,22 +100,16 @@ export class AddDepartmentOrCoursePage implements OnInit {
   }
 
   add_department(){
-      if(this.department_Name!=='',this.department_Abbreviation!=='',this.department_Description!==''){
-        const departmentData = {
-        department_Name: this.department_Name,
-        department_Abbreviation: this.department_Abbreviation,
-        department_Description: this.department_Description,
-        uid:''
-      };
-
+  
+    this.dept.InceptionDate = this.InceptionDate.toLocaleString();
+   
+      if(this.dept.department_Name!=='',this.dept.department_Abbreviation!=='',this.dept.department_Description!==''){
       if(this.showAddDepartment){
         this.addCourse();
       }
-    
-      this.data.addDepartment(departmentData);
+      this.data.addDepartment(this.dept);
       alert('Successfully');
 }
-
   else{
     alert('All fields are required');
 

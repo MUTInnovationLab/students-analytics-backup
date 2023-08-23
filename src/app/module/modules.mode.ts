@@ -1,7 +1,8 @@
 export interface Subjects{
-    name: String;
-    subjectCode: String;
-    description: String;
-    lecturer: String;
-    year: String
+    name: string;
+    subjectCode: string;
+    description: string;
+    lecturer: string;
+    course: string;
+    year: string;
 }
