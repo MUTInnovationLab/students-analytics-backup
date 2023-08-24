@@ -12,24 +12,27 @@
 <ion-content>
 
   <br> 
-  <ion-toggle [(ngModel)]="showAddDepartment"></ion-toggle><ion-label color="warning" >Show Add New Department</ion-label>
-  <ion-card>
+  <ion-toggle [(ngModel)]="showAddDepartment"></ion-toggle><ion-label color="warning" >Show Add Course</ion-label>
+  
+  <ion-card [style.display]="value? 'none' : 'block'">
+    <ion-item>
+      <ion-input [(ngModel)]="dept.department_Name" [clearInput]="true" label="Department Name:" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="dept.department_Abbreviation" [clearInput]="true" label="Department Abbreviation:" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type='Date' [(ngModel)]="InceptionDate" [clearInput]="true" label="Department Inception Date:" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="dept.department_Description" [clearInput]="true" label="Department Description:" labelPlacement="floating"></ion-input>
+    </ion-item>
+  </ion-card>
+  
+ 
+ 
+  <ion-card *ngIf="showAddDepartment">
    
-    
-
-    <ion-item *ngIf="!showAddDepartment">
-      <ion-label>Select Department:</ion-label>
-      <ion-select [(ngModel)]="selectedDepartment">
-        <ion-select-option *ngFor="let department of departments" [value]="department">{{ department }}</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item *ngIf="showAddDepartment">
-      <ion-input [(ngModel)]="newDepartment" [clearInput]="true" label="Add New Department:" labelPlacement="floating"></ion-input>
-    </ion-item>
-
-    <!-------------------------------------------->
-
     <ion-item>
       <ion-input [(ngModel)]="courseName" [clearInput]="true" label="Course Name:" labelPlacement="floating"></ion-input>
     </ion-item>
@@ -46,7 +49,7 @@
       <ion-input [(ngModel)]="newCourseDescription" [clearInput]="true" label="Description:" labelPlacement="floating"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-button (click)="addCourse()">Add Course</ion-button>
+      <ion-button fill='block' (click)="addCourse()">Add Course</ion-button>
     </ion-item>
   </ion-card>
 
@@ -61,5 +64,5 @@
   </ion-card>
 
 
-  <ion-button class="save-btn">save</ion-button>
+  <ion-button class="save-btn"  (click)= "add_department()">save</ion-button>
 </ion-content>

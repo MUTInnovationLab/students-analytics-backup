@@ -1,13 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <div class="center-title"><ion-title>HOD Dashboard</ion-title></div>
-    <ion-buttons slot="end" class="mobile-only" >
-      <ion-menu-button  (click)="openMenu()"></ion-menu-button>
+  <ion-toolbar color="dark" >
+    <div class="center-title"><ion-title color="dark" style="text-align: center;color:white;font-family: 'Times New Roman', Times, serif;font-size: 30px;">
+   HOD Dashboard</ion-title></div>
+    <ion-buttons slot="end" class="mobile-only">
+      <ion-menu-button slot="right" (click)=" openMenu()"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content [fullscreen]="true">
 <div class="container">
   <ion-list class="silde-menu-list">
@@ -16,7 +15,7 @@
         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
       <ion-label class="avatar-info">
-        <h2>{{name }}{{staffNo}}</h2>
+        <h2>{{name }}&nbsp;{{surname}}</h2>
         <div clas="online-label-icon">
         <ion-icon name="ellipse" class="online-icon" style="zoom: 0.5; color: green;"></ion-icon>
         <ion-text class="online-label">online</ion-text>
@@ -67,7 +66,7 @@
               <ion-card-title class="card-title">Students</ion-card-title>
             </ion-card-header>
             <ion-card-content class="card-content">
-              <div class="number">10</div>
+              <div class="number">{{10}}</div>
               <div class="label">Total Students</div>
             </ion-card-content>
           </ion-card>
@@ -80,7 +79,7 @@
               <ion-card-title class="card-title">Facuty member</ion-card-title>
             </ion-card-header>
             <ion-card-content class="card-content">
-              <div class="number">19</div>
+              <div class="number">{{numberOfMembers}}</div>
               <div class="label">Total Members</div>
             </ion-card-content>
           </ion-card>

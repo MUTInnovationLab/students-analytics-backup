@@ -18,9 +18,9 @@ import { UsersService } from '../shared/users.service';
 })
 export class LoginPage implements OnInit {
 
-  email : string ='';
+  email : string ='vgwala149@gmail.com';
   wrong: boolean = false;
-  password : string = '';
+  password : string = '123456';
   
  
 
