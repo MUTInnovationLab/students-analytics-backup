@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddMModalPage } from '../add-m-modal/add-m-modal.page';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-member',
@@ -12,7 +12,8 @@ export class MemberPage implements OnInit {
   navCtrl: any;
   
 
-  constructor(private router: Router, private modalController: ModalController) { }
+  constructor(private router: Router, private modalController: ModalController,
+    private menuCtrl: MenuController) { }
   
   goToModal(){
     this.navCtrl.navigateForward("/add-m-modal");
@@ -41,4 +42,10 @@ export class MemberPage implements OnInit {
     },
     // Add more data items as needed
   ];
+
+  openMenu() {
+    // Open the menu by menu-id
+    this.menuCtrl.enable(true, 'main-menu');
+    this.menuCtrl.open('main-menu');
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-view-marks',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewMarksPage implements OnInit {
   tableData: any[] = [];
-  constructor() { }
+  constructor(private menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
 
+  openMenu() {
+    // Open the menu by menu-id
+    this.menuCtrl.enable(true, 'lecturerMenu');
+    this.menuCtrl.open('lecturerMenu');
+  }
 }

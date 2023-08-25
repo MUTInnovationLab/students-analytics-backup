@@ -12,7 +12,7 @@ import { DataService } from '../shared/data.service';
 export class DepartmentsPage implements OnInit {
 
   departments: department[] = [];
-
+  search: string='';
 
   color: String='brown';
 
@@ -22,18 +22,21 @@ export class DepartmentsPage implements OnInit {
     private menuCtrl: MenuController,
     private data: DataService) { this.loadDepartments();
     }
-    ngOnInit() {
-     
-    }
-  
+    ngOnInit() {}
+
     loadDepartments() {
       this.data.getAllDept().subscribe((departments: department[]) => {
         this.departments = departments;
       });
-    }
+}
   
-  
-
+searchResults : any[]=[];
+searching() {
+  this.searchResults = this.departments.filter(depart =>
+    depart.department_Name.toLowerCase().includes(this.search.toLowerCase())
+  );
+  this.departments = this.searchResults;
+}
  
 
 viewCourses(value: string){
