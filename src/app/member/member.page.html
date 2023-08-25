@@ -1,9 +1,8 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="black" style="background-color: black; text-align: center;color:white">
-    <ion-title  style="text-align: center;font-weight: bolder;color:brown;font-size:40px">member</ion-title>
-    <ion-buttons slot="end">
-      <ion-menu-button color=light (click)="openMenu()">
-      </ion-menu-button>
+  <ion-toolbar>
+    <ion-title>member</ion-title>
+    <ion-buttons slot="end" class="mobile-only" >
+      <ion-menu-button  (click)="openMenu()"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +10,7 @@
 <ion-content [fullscreen]="true">
  
     <ion-item class="btn-for-table">
-      <ion-searchbar class="custom-searchbar" placeholder="Search the member"></ion-searchbar>
+      <ion-searchbar class="custom-searchbar" placeholder="Search the member"  [(ngModel)]="searchQuery" ></ion-searchbar>
       <ion-buttons slot="end">
         <ion-button size="medium" fill="clear" color="secondary"  (click)="openlectureModal()">
           <ion-icon slot="start" name="Add"></ion-icon>
@@ -46,8 +45,8 @@
           <ion-col size="3">{{ item.email }}</ion-col>
           <ion-col size="2">{{ item.course }}</ion-col>
           <ion-col size="1">
-          <ion-icon name="create-outline" color="warning"></ion-icon>
-          <ion-icon name="close-circle-outline" color="danger"></ion-icon>
+          <ion-icon name="create-outline" color="warning" (click)="editUser(item.email)"></ion-icon>
+          <ion-icon name="close-circle-outline" color="danger" (click)="deleteUser(item.email)"></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -68,16 +67,11 @@
                 <p>Course: {{ item.course }}</p>
               </ion-card-content>
             <ion-item>
-                <ion-button size="small" fill="clear">Edit</ion-button>
-                <ion-button size="small" fill="clear">Delete</ion-button>
+                <ion-button size="small" fill="clear" (click)="editUser(item.email)">Edit</ion-button>
+                <ion-button size="small" fill="clear" (click)="deleteUser(item.email)">Delete</ion-button>
               </ion-item>
             </ion-card>
           </ion-col>
         </ion-row>
       </ion-grid>
-
-
-  
-
-
 </ion-content>

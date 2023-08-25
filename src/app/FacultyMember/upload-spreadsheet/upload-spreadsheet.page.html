@@ -76,11 +76,13 @@
 
       <ion-grid>
   
-        <ion-row *ngFor="let student of studentDetails; let i = index">
-          <ion-col size="2"> {{ student }}</ion-col>
-          <ion-col size="1" *ngFor="let mark of studentMarks[i]; let j = index">{{ mark }}</ion-col>
+      <ion-row *ngFor="let student of ContentsOfFile" class="table-row">
+      <ion-col>{{ student.student_number }}</ion-col>
+      <ion-col>{{ student.test1 }}</ion-col>
+      <ion-col>{{ student.test2 }}</ion-col>
+      <ion-col>{{ student.test3 }}</ion-col>
+      <ion-col>{{ student.test4 }}</ion-col>
         </ion-row>
-
       </ion-grid>
     </ion-card-content>
   </ion-card>

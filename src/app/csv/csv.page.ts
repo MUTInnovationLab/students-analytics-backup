@@ -5,6 +5,8 @@ import { finalize } from 'rxjs';
 import { Student } from 'src/app/module/student.mode';
 import { DataService } from 'src/app/shared/data.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-csv',
@@ -35,7 +37,7 @@ export class CsvPage implements OnInit {
 
     name: any='';
 
-  constructor(private datax: DataService, private storage: AngularFireStorage,private loadingController: LoadingController,
+  constructor(private firestore:AngularFirestore,private datax: DataService, private storage: AngularFireStorage,private loadingController: LoadingController,
     private navCtrl: NavController) {
     this.loadStudents();
     this.linesArray = this.pdfContent.split('\n');
@@ -105,7 +107,7 @@ export class CsvPage implements OnInit {
     
     
   }
-  readAndUploadFileContent() {
+  async readAndUploadFileContent() {
    
    
     if (this.selectedFile.files && this.selectedFile.files.length > 0) {
@@ -113,39 +115,49 @@ export class CsvPage implements OnInit {
       this.name = file.name;
       const reader = new FileReader();
 
-      reader.onload = (e) => {
+      reader.onload = async (e) => {
         const data = e.target?.result as string;
         const workbook = XLSX.read(data, { type: 'binary' });
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         this.data = XLSX.utils.sheet_to_json(sheet);
+        await this.uploadDataToFirestore( this.data);
       };
 
-      reader.readAsBinaryString(file);
+  reader.readAsBinaryString(file);
+     
     }
   }
-  // readAndUploadFileContent(event:any ) {
-  //   this.selectedFile ='fd' ;
-  //   const fileInput = event.target as HTMLInputElement;
-  //   this.name=fileInput?.name;
+  
 
-  //   alert(this.name);
 
-  //   if (fileInput.files && fileInput.files.length > 0) {
-  //     const file = fileInput.files[0];
-  //     const reader = new FileReader();
+  async uploadDataToFirestore(data: any[]) {
+    try {
+        const firebaseBatch = this.firestore.firestore.batch();
 
-  //     reader.onload = (e) => {
-  //       const data = e.target?.result as string;
-  //       const workbook = XLSX.read(data, { type: 'binary' });
-  //       const sheetName = workbook.SheetNames[0];
-  //       const sheet = workbook.Sheets[sheetName];
-  //       this.data = XLSX.utils.sheet_to_json(sheet);
-  //     };
+        for (const entry of data) {
+            const studentNumber = entry['student_number'].toString();;
 
-  //     reader.readAsBinaryString(file);
-  //   }
-  // }
+            if (studentNumber) {
+                const docRef = this.firestore.collection('students').doc(studentNumber).ref;
+
+                firebaseBatch.set(docRef, entry);
+            } else {
+                console.error('Missing student number for an entry:', entry);
+            }
+        }
+
+        await firebaseBatch.commit();
+        console.log('Data uploaded to Firestore successfully.');
+    } catch (error) {
+        console.error('Error uploading data to Firestore:', error);
+    }
+}
+
+
+
+
+
 
   uploadMarks() {
     if (this.selectedFile) {
@@ -153,11 +165,6 @@ export class CsvPage implements OnInit {
       this.  onFileChange(this.selectedFile);
     }
   }
-
-
-    
-  
-
 
   uploadFile(file: File) {
     const filePath = `Documents/${new Date().getTime()}_${file.name}`;
@@ -178,6 +185,7 @@ export class CsvPage implements OnInit {
       })
     ).subscribe();
   }
+  
   align() {
     this.studentDetails = []; // Initialize the studentDetails array
     this.studentMarks = [];  // Initialize the studentMarks array

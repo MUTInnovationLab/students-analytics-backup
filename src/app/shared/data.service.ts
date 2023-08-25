@@ -23,6 +23,11 @@ export class DataService {
   getAllStudents(): Observable<Student[]> {
     return this.firestore.collection<Student>('students').valueChanges();
   }
+
+  getAllMembers() {
+    return this.firestore.collection('registered').valueChanges();
+  }
+  
   getAllDept(): Observable<department[]> {
     return this.firestore.collection<department>('Departments').valueChanges();
   }
@@ -37,11 +42,17 @@ export class DataService {
     return this.firestore.collection('Modules').doc(data.subjectCode).set(data);
   }
 
+  getUserOneUser(email:any){
+    return   this.firestore.collection('registered').doc(email) 
+  }
+
   async getCurrentUserEmail(): Promise<string | null> {
     const user = await this.auth.currentUser;
     return user ? user.email : null;
   }
 
+
+  
 
 
 }

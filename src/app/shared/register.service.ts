@@ -26,4 +26,12 @@ export class RegisterService {
         throw error;
       });
   }
+
+
+  async updateRegisteredUser(member: any){
+    const user = this.auth.currentUser;
+    if (await user) {
+      return this.firestore.collection('registered').doc(member.email).set(member);
+    }
+  }
 }

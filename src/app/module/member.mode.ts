@@ -13,6 +13,6 @@ export interface  register{
     email: '',
     role: '',
     uid: '',
-    faculty: '', // New field
+    department: '', // New field
     staffNumber: '' // New field
   };
