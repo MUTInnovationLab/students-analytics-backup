@@ -1,18 +1,21 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>view-marks</ion-title>
+  <ion-toolbar color='black' style="background-color: black;">
+    <ion-title style="background-color: black;color:white; text-align: center;">Studends Marks</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button color=light (click)="openMenu()">
+      </ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">view-marks</ion-title>
+      <ion-title size="large" routerLink="/dashboard">view-marks</ion-title>
     </ion-toolbar>
-  </ion-header>
-
-  <p class="ion-text-center">Studends Marks</p>
-  
+  </ion-header>  
+  <ion-icon name="arrow-back-circle-outline" id="my-icon"></ion-icon> 
+  <p class="ion-text-center">Studends Marks</p>  
     <ion-card class="table-card">
       <ion-card-content>
         <ion-grid>

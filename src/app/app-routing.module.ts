@@ -99,7 +99,10 @@ const routes: Routes = [
     path: 'view-marks',
     loadChildren: () => import('./view-marks/view-marks.module').then( m => m.ViewMarksPageModule)
   },
-
+  {
+    path: 'view-details',
+    loadChildren: () => import('./view-details/view-details.module').then( m => m.ViewDetailsPageModule)
+  }
 
 
 

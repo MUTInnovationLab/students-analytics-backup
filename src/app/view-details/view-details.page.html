@@ -1,38 +1,16 @@
-
-
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Grid Example
+      View Details
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-
-   
-  <ion-grid >
-    <ion-row class="header-row">
-      <ion-col class="custom-col">Column 1 Header</ion-col>
-      <ion-col class="custom-col">Column 2 Header</ion-col>
-      <ion-col class="custom-col">Column 3 Header</ion-col>
-      <ion-col class="custom-col">Column 4 Header</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="custom-col">Row 1, Col 1</ion-col>
-      <ion-col class="custom-col">Row 1, Col 2</ion-col>
-      <ion-col class="custom-col">Row 1, Col 3</ion-col>
-      <ion-col class="custom-col">Row 1, Col 4</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="custom-col">Row 2, Col 1</ion-col>
-      <ion-col class="custom-col">Row 2, Col 2</ion-col>
-      <ion-col class="custom-col">Row 2, Col 3</ion-col>
-      <ion-col class="custom-col">Row 2, Col 4</ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-card-content>
-</ion-card>
+  <ion-searchbar id="searchInput"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let result of searchResults">
+      {{ result }}
+    </ion-item>
+  </ion-list>
 </ion-content>
