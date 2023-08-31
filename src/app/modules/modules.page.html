@@ -42,10 +42,11 @@
 
       <ion-item>
         <ion-label>Select Lecturer:</ion-label>
-        <ion-select [(ngModel)]="subject.lecturer">
-          <ion-select-option *ngFor="let lecturer of lecturers" [value]="lecturer">{{ lecturer }}</ion-select-option>
+        <ion-select [(ngModel)]="subject.lecturer" [(ngModel)]="subject.staffNumber">
+          <ion-select-option *ngFor="let lecturer of lecturers" value="{{ lecturer.name }} &nbsp; {{ lecturer.surname }}">{{ lecturer.name }} &nbsp; {{ lecturer.surname }}</ion-select-option>
         </ion-select>
       </ion-item>
+
       <ion-item>
         <ion-label>Select Year:</ion-label>
         <ion-select [(ngModel)]="subject.year">

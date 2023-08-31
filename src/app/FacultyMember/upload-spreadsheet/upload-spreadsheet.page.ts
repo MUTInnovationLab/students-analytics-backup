@@ -31,12 +31,14 @@ export class UploadSpreadsheetPage implements OnInit {
     isLoading = false;
 
     name: any='';
+  modules: any;
 
   constructor(private data: DataService, private storage: AngularFireStorage,private loadingController: LoadingController,
     private navCtrl: NavController) {
     this.loadStudents();
     this.linesArray = this.pdfContent.split('\n');
     console.error(this.linesArray);
+    this.getCurrentUserEmail();
   }
 
   ngOnInit(): void {
@@ -133,6 +135,7 @@ export class UploadSpreadsheetPage implements OnInit {
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         this.ContentsOfFile = XLSX.utils.sheet_to_json(sheet);
+      console.log(this.ContentsOfFile)
       };
 
       reader.readAsBinaryString(file);
@@ -193,6 +196,30 @@ export class UploadSpreadsheetPage implements OnInit {
       }
     }
   }
+
+
+staffNumber:any;userEmail:any;
+  async getCurrentUserEmail(){
+
+this.userEmail= await this.data.getCurrentUserEmail() ;
+alert(this.userEmail)
+if(this.userEmail){
+this.data.getUserOneUser(this.userEmail.email).valueChanges().subscribe(Response=>{
+    this.staffNumber=Response;
+    console.log(this.staffNumber);
+
+});
+}
+}
+
+getModules(){
+  this.data.getModuleByStaffNumber(this.staffNumber.staffNumber).subscribe(response => {
+    this.modules = response;
+
+  });
+}
+
+
 }
 
 

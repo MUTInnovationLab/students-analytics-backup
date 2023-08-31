@@ -42,6 +42,9 @@ export class DataService {
     return this.firestore.collection('Modules').doc(data.subjectCode).set(data);
   }
 
+  getModules(){
+    return this.firestore.collection('Modules').valueChanges();;
+  }
   getUserOneUser(email:any){
     return   this.firestore.collection('registered').doc(email) 
   }
@@ -50,7 +53,13 @@ export class DataService {
     const user = await this.auth.currentUser;
     return user ? user.email : null;
   }
+ 
 
+  getModuleByStaffNumber(staffNumber: any): Observable<any> {
+    return this.firestore.collection('Modules', ref =>
+      ref.where('staffNumber', '==', staffNumber)
+    ).valueChanges();
+  }
 
   
 

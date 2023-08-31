@@ -63,15 +63,19 @@
             </ion-button>
 
     </ion-card-content>
-    
+    <ion-card-header>
+      <ion-card-title>All Registered Students</ion-card-title>
+    </ion-card-header>
     <ion-loading class="custom-loading" trigger="open-loading" message="Loading..." [duration]="3000"></ion-loading>
   
   </ion-card>
 
   <ion-card style="margin-left:10%;margin-right:10%">
-    <ion-card-header>
-      <ion-card-title>All Registered Students</ion-card-title>
-    </ion-card-header>
+   
+    <ion-select (click)="getModules()"  label="Select module" label-placement="stacked">
+      <ion-select-option *ngFor="let item of modules">{{item.subjectCode}}</ion-select-option>
+    </ion-select>
+
     <ion-card-content>
 
       <ion-grid>

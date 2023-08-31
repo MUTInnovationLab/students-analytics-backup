@@ -16,10 +16,10 @@
           <ion-icon slot="start" name="Add"></ion-icon>
           Add
         </ion-button>
-        <ion-button size="small" fill="clear" color="warning" (click)="openlectureModal()">
+        <!-- <ion-button size="small" fill="clear" color="warning" (click)="openlectureModal()">
           <ion-icon slot="start" name="create-outline"></ion-icon>
           Edit
-        </ion-button>
+        </ion-button> -->
         <ion-button size="small" fill="clear"  color="light" >
           <ion-icon slot="start" name="refresh-sharp"></ion-icon>
           Reset
@@ -32,21 +32,32 @@
     <ion-card-content>
       <ion-grid>
         <ion-row class="header-row">
-          <ion-col size="3">Name</ion-col>
-          <ion-col size="3">Surname</ion-col>
+          <ion-col size="2">Employee no</ion-col>
+          <ion-col size="2">Name</ion-col>
+          <ion-col size="2">Surname</ion-col>
           <ion-col size="3">Email</ion-col>
           <ion-col size="2">Course</ion-col>
           <ion-col size="1">Action</ion-col>
         </ion-row>
 
         <ion-row class="data-row" *ngFor="let item of tableData">
-          <ion-col size="3">{{ item.name }}</ion-col>
-          <ion-col size="3">{{ item.surname }}</ion-col>
-          <ion-col size="3">{{ item.email }}</ion-col>
-          <ion-col size="2">{{ item.course }}</ion-col>
-          <ion-col size="1">
+          <ion-col size="2"  class="column">{{ item.staffNumber }}</ion-col>
+          <ion-col size="2" class="column">{{ item.name }}</ion-col>
+          <ion-col size="2" class="column">{{ item.surname }}</ion-col>
+          <ion-col size="3" class="column">{{ item.email }}</ion-col>
+          <ion-col size="2" class="column">{{ item.course }}</ion-col>
+          <ion-col size="1" class="column">
           <ion-icon name="create-outline" color="warning" (click)="editUser(item.email)"></ion-icon>
           <ion-icon name="close-circle-outline" color="danger" (click)="deleteUser(item.email)"></ion-icon>
+          <ion-icon name="caret-back-outline" style="zoom:1" (click)="openSelect(item.staffNumber)"></ion-icon>
+
+ 
+     
+            <ion-select   label="Stacked label" label-placement="stacked" #mySelect [hidden]="true">
+              <ion-select-option *ngFor="let itemm of modules;let i=index">{{itemm.subjectCode}}</ion-select-option>
+            </ion-select>
+      
+
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -69,6 +80,7 @@
             <ion-item>
                 <ion-button size="small" fill="clear" (click)="editUser(item.email)">Edit</ion-button>
                 <ion-button size="small" fill="clear" (click)="deleteUser(item.email)">Delete</ion-button>
+                <ion-button size="small" fill="clear" (click)="openSelect(item.staffNumber)">Modules</ion-button>
               </ion-item>
             </ion-card>
           </ion-col>
