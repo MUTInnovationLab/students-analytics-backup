@@ -5,4 +5,5 @@ export interface Subjects{
     lecturer: string;
     course: string;
     year: string;
+    staffNumber: string,
 }

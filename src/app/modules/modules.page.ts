@@ -3,13 +3,14 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { Subjects} from 'src/app/module/modules.mode';
 import {DataService} from '../shared/data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Component({
   selector: 'app-modules',
   templateUrl: './modules.page.html',
   styleUrls: ['./modules.page.scss'],
 })
 export class ModulesPage implements OnInit {
-  lecturers: string[] = ['Dr RF Chidzonga', 'Mr N Ndlela', 'Prof B Bakare'];
+  lecturers: any[] = [];
   selectedLecturer: string = '';
   selectedYear: string ='';
   Years: string[] =['ECP','First Year','Second Year', 'Third Year', 'Forth Year','Advance'];
@@ -22,11 +23,14 @@ export class ModulesPage implements OnInit {
   description:'',
   lecturer:'',
   course:'',
+  staffNumber:'',
   year:'',
 
   }
   course: string='';
   showCard: boolean =false;
+  membersSubscription: any;
+  members: any;
   constructor(private modalController: ModalController,
     private data:DataService,
     private navParams: NavParams,
@@ -38,7 +42,23 @@ export class ModulesPage implements OnInit {
     // alert(this.course);
      this.subject.course=this.course;
     this.getCoursesWithSpecificCategory();
+    this.getAllMembers();
   }
+
+
+  async getAllMembers() {
+    try {
+      const querySnapshot = await  this.data.getAllMembers();
+      this.membersSubscription = querySnapshot.subscribe((member: any[]) => {
+        this.lecturers = member;
+        
+      });
+    } catch (error) {
+      console.error('Error getting user documents:', error);
+    }
+  }
+
+
   addSubject(){
 
     if(this.subject.name!==''&&this.subject.lecturer!==''&&this.subject.description!==''&&this.subject.year!==''&&this.subject.subjectCode!=='')

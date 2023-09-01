@@ -17,6 +17,7 @@ export class SpecificModulesPage implements OnInit {
     lecturer: '',
     course: '',
     year: '',
+    staffNumber: ''
   };
 
   modules: Subjects[] = [];
@@ -31,7 +32,7 @@ export class SpecificModulesPage implements OnInit {
         alert('Parameter Value:'+stuffNo);
 
         // const specificStuffNumber = '12345'; // Replace with the stuffNumber you want to search for
-        this.data.getModuleByStuffNumber(stuffNo).subscribe((data) => {
+        this.data.getSpecificModuleByStuffNumber(stuffNo).subscribe((data) => {
           this.modules = data;
         });
         // Do something with the parameter value

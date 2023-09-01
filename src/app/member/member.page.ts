@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddMModalPage } from '../add-m-modal/add-m-modal.page';
-import { MenuController, ModalController } from '@ionic/angular';
+import { IonSelect, MenuController, ModalController } from '@ionic/angular';
 import { DataService } from '../shared/data.service';
 
 @Component({
@@ -12,6 +12,10 @@ import { DataService } from '../shared/data.service';
 export class MemberPage implements OnInit {
   searchQuery: string = '';
   tableData: any[] = [];
+  @ViewChild('mySelect') mySelect: IonSelect | undefined;
+  modules: any;
+
+  
 
   constructor(
     private data: DataService,
@@ -20,6 +24,15 @@ export class MemberPage implements OnInit {
     private modalController: ModalController,
 
   ) {}
+
+
+  openSelect(staffNumber: any) {
+      this.data.getModuleByStaffNumber(staffNumber).subscribe(response => {
+        this.modules = response;
+        // Now you can access the fetched document, if available
+        this.mySelect?.open();
+      });
+    }
 
   goToModal() {
     this.router.navigate(['/add-m-modal']);
@@ -39,8 +52,51 @@ export class MemberPage implements OnInit {
   fetchAllMembers() {
     this.data.getAllMembers().subscribe((data: any[]) => {
       this.tableData = data;
+      console.log(this.tableData);
     });
   }
+  getallModuleOfUser() {
+    this.data.getAllMembers().subscribe((data: any[]) => {
+      this.modules = data;
+      console.log(this.tableData);
+    });
+  }
+
+
+
+//   modules:any;
+// all(){
+//   this.data.getAllMembers().subscribe((data: any[]) => {
+//     this.tableData = data;
+  
+//     // Step 2: Fetch Modules
+//     this.data.getModules().subscribe(modules => {
+//       this.modules = modules;
+  
+//       // Step 3: Update UIDs in tableData based on StaffNumber
+//       for (const module of this.modules) {
+//         const staffNumber = module.staffNumber;
+  
+//         for (const item of this.tableData) {
+//           if (item.uid === staffNumber) {
+//             item.uid += ` - ${staffNumber}`;
+//           }
+//         }
+//       }
+//     });
+//   });
+// }
+
+
+
+
+  getModules(){
+    this.data.getModules().subscribe(modules =>{
+  // this.modules=modules;
+    })
+  }
+
+
 
   async deleteUser(email: string) {
     try {
