@@ -20,6 +20,9 @@ export class CoursesPage implements OnInit {
   valueToSend: string='';
   courses: Course[] = [];
   department: string='';
+ // Initialize as an empty array
+  searchKeyword: string = '';
+  filteredCourses: any[] = [];
 
   constructor(private modalController: ModalController,
     private menuCtrl: MenuController,
@@ -72,8 +75,17 @@ export class CoursesPage implements OnInit {
       .valueChanges()
       .subscribe((courses: any[]) => {
         this.courses = courses;
+        this.filterCourses() 
       });
   }
 
-}
+  filterCourses() {
+    this.filteredCourses = this.courses.filter(course =>
+      course.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+    );
+  }
 
+  applyFilter() {
+    this.courses = [...this.filteredCourses];
+  }
+}

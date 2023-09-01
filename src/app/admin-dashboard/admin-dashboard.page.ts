@@ -59,6 +59,7 @@ async getInitialData() {
     } catch (error) {
       console.error('Error getting user documents:', error);
     }
+  
   }
 
   async getNumberOfStudents() {

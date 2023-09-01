@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
-  import { MenuController, NavController } from '@ionic/angular';
-  import { Router } from '@angular/router';
+import { MenuController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/shared/data.service';
+//import {DataService} from 'src/page/shared/data.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Subscription } from 'rxjs';
+import * as emailjs from 'emailjs-com';
   
 
 @Component({
@@ -11,17 +15,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
+  name: string = '';
+  surname: string='';
+  userEmail : any='';
+  staffNumber: string='';
   facultyName: string = 'John Doe';
-  //facultyName: string = 'John Doe';
   email: string = 'john.doe@example.com';
   department: string = "Information Communication Technology"
     constructor(
       private navCtrl: NavController,
       private router: Router,
-      private menuCtrl: MenuController
+      private menuCtrl: MenuController,
+      private data: DataService, 
+      //private menuCtrl: MenuController,
+      private firestore: AngularFirestore
     ) {}
+  //   constructor( {
+  //    this.getInitialData();
+  //  }
   ngOnInit(){
-
+    this.getUserDoc();
   }
   
 
@@ -63,17 +76,28 @@ export class DashboardPage implements OnInit {
       // Navigate to the Student Profile page
       this.router.navigate(['/student-profile']);
     }
-    
-    
-    navigateToModulesPage() {
-      // Navigate to the Student Profile page
-      this.router.navigate(['/modules']);
-    }
+navigateToModulesPage() {
+  // Navigate to the Specific Modules page with a parameter
+  this.router.navigate(['/specific-modules'], { queryParams: { paramName: this.staffNumber } });
+}
+
     
   openMenu() {
     // Open the menu by menu-id
     this.menuCtrl.enable(true, 'lecturerMenu');
     this.menuCtrl.open('lecturerMenu');
+  }
+
+  async getUserDoc() {
+    this.userEmail = await this.data.getCurrentUserEmail();
+    try {
+      const userDoc = await this.firestore.collection('registered').doc(this.userEmail).get().toPromise();
+      this.name = userDoc?.get('name') || null;
+      this.surname = userDoc?.get('surname') || null;
+      this.staffNumber = userDoc?.get('staffNumber') || null;
+    } catch (error) {
+      console.error('Error getting user role:', error);
+    }
   }
   }
   

@@ -17,8 +17,11 @@
    </ion-button>
    <ion-button fill="clear">
    <ion-icon color='light' class="hideIcon" name="chevron-forward-outline"></ion-icon>
-  </ion-button><ion-searchbar class="custom-searchbar" placeholder="Search the Course"></ion-searchbar>
-    <ion-buttons slot="end">
+  </ion-button><ion-searchbar id="searchKeyword" class="custom-searchbar" placeholder="Search the Course"></ion-searchbar>
+   <ion-button (click)="applyFilter()">
+
+   </ion-button>  
+  <ion-buttons slot="end">
       <ion-button size="medium" fill="clear" color="secondary" (click)="presentAddDepartmentModal()">
         <ion-icon size="large" name="add-circle-outline"></ion-icon>
       </ion-button>
@@ -38,7 +41,6 @@
           <ion-col class="custom-col" size="1.5">View Modules</ion-col>
         </ion-row>
         <ion-row class="data-row" *ngFor="let course of courses; let i = index;" (click)="openModal(course.abbreviation )">
-          
           <ion-col class="custom-col" size="1.5">{{ course.abbreviation }}</ion-col>
           <ion-col class="custom-col" size="3">{{ course.name }}</ion-col>
           <ion-col class="custom-col" size="1">{{ course.modules }}</ion-col>
@@ -74,7 +76,4 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-
-<!-- __________________________________________________________ -->
-
 </ion-content>

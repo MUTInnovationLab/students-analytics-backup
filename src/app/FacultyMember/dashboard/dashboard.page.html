@@ -12,7 +12,19 @@
 <ion-content [fullscreen]="true">
         <div  class="container">
         <ion-list class="desktop-only">
-          <ion-item color="primary" >
+          <ion-item lines="none" class="avatar">
+            <ion-avatar slot="start">
+              <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+            <ion-label class="avatar-info">
+              <h2>{{name }}&nbsp;{{surname}}</h2>
+              <div clas="online-label-icon">
+              <ion-icon name="ellipse" class="online-icon" style="zoom: 0.5; color: green;"></ion-icon>
+              <ion-text class="online-label">online</ion-text>
+              </div>
+            </ion-label>
+          </ion-item>
+          <!-- <ion-item color="primary" >
             
             <ion-avatar slot="start">
               <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -25,7 +37,7 @@
           <ion-label>{{ email }}</ion-label>
         </ion-row>
       </ion-grid> 
-       </ion-item>
+       </ion-item> -->
        <ion-item-divider></ion-item-divider>
         
        <ion-item class="data-row" routerLink="/dashboard" class="Lbutton">

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Student } from 'src/app/module/student.mode';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { department } from 'src/app/module/Department.mode';
+import { Subjects } from 'src/app/module/modules.mode';
 @Injectable({
   providedIn: 'root'
 })
@@ -49,6 +50,11 @@ export class DataService {
   async getCurrentUserEmail(): Promise<string | null> {
     const user = await this.auth.currentUser;
     return user ? user.email : null;
+  }
+  getModuleByStuffNumber(staffNumber: string): Observable<Subjects[]> {
+    return this.firestore
+      .collection<Subjects>('Modules', (ref) => ref.where('staffNumber', '==', staffNumber))
+      .valueChanges();
   }
 
 
