@@ -33,12 +33,13 @@ export class UploadSpreadsheetPage implements OnInit {
     name: any='';
   modules: any;
 
-  constructor(private data: DataService, private storage: AngularFireStorage,private loadingController: LoadingController,
+  constructor(private data: DataService, private storage: AngularFireStorage,
+    private loadingController: LoadingController,
     private navCtrl: NavController) {
-    this.loadStudents();
-    this.linesArray = this.pdfContent.split('\n');
-    console.error(this.linesArray);
-    this.getCurrentUserEmail();
+    //this.loadStudents();
+    //this.linesArray = this.pdfContent.split('\n');
+   // console.error(this.linesArray);
+  this.getCurrentUserEmail();
   }
 
   ngOnInit(): void {
@@ -198,23 +199,26 @@ export class UploadSpreadsheetPage implements OnInit {
   }
 
 
-staffNumber:any;userEmail:any;
+staffNumber:any;
+userEmail:any;
   async getCurrentUserEmail(){
 
-this.userEmail= await this.data.getCurrentUserEmail() ;
+this.userEmail= await this.data.getCurrentUserEmail();
 alert(this.userEmail)
-if(this.userEmail){
-this.data.getUserOneUser(this.userEmail.email).valueChanges().subscribe(Response=>{
+if(this.userEmail+" 2"){
+  alert(this.userEmail)
+ this.data.getUserOneUser(this.userEmail).valueChanges().subscribe((Response:any)=>{
     this.staffNumber=Response;
-    console.log(this.staffNumber);
-
+    console.log("xxxxxx"+this.staffNumber.data());
+    alert(this.userEmail)
 });
 }
 }
 
 getModules(){
-  this.data.getModuleByStaffNumber(this.staffNumber.staffNumber).subscribe(response => {
+  this.data.getModuleByStaffNumber("12345").subscribe(response => {
     this.modules = response;
+    console.log("ffffffff  :"+ this.modules);
 
   });
 }

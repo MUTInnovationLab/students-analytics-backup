@@ -53,7 +53,7 @@
 
  
      
-            <ion-select   label="Stacked label" label-placement="stacked" #mySelect [hidden]="true">
+            <ion-select   label="modules {{modules.length}}" label-placement="stacked" #mySelect [hidden]="true">
               <ion-select-option *ngFor="let itemm of modules;let i=index">{{itemm.subjectCode}}</ion-select-option>
             </ion-select>
       

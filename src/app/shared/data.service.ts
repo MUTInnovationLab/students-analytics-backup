@@ -60,7 +60,7 @@ export class DataService {
       .valueChanges();
   }
 
-  getModuleByStaffNumber(staffNumber: any): Observable<any> {
+  getModuleByStaffNumber(staffNumber: any) {
     return this.firestore.collection('Modules', ref =>
       ref.where('staffNumber', '==', staffNumber)
     ).valueChanges();
