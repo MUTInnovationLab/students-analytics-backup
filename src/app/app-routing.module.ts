@@ -106,7 +106,11 @@ const routes: Routes = [
   {
     path: 'specific-modules',
     loadChildren: () => import('./specific-modules/specific-modules.module').then( m => m.SpecificModulesPageModule)
+  },  {
+    path: 'student-marks',
+    loadChildren: () => import('./student-marks/student-marks.module').then( m => m.StudentMarksPageModule)
   }
+
 
 
 

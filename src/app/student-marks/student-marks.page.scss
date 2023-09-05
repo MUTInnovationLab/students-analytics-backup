@@ -1,0 +1,281 @@
+// /* Import the Poppins font if not already imported in your project */
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Poppins', sans-serif;
+//   }
+  
+// .container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     gap: 40px;
+//     background-color: #b80e0e;
+//     padding: 20px; /* Add padding to the container */
+//   }
+  
+//   .progress {
+//     position: relative;
+//     width: 100px;
+//     height: 100px;
+//     border-radius: 50%;
+//     color: white;
+//     background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+//     font-size: 9px;
+//   }
+  
+//   ion-item {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     min-height: 100vh;
+//     background-color: #3333;
+//     margin: 0;
+//     padding: 0;
+//   }
+// // ----------------------------------------------------------------------------
+// *{
+//     margin:0;
+//     padding:0;
+//     box-sizing:border-box;
+//     font-family: Georgia, 'Times New Roman', Times, serif;
+// }
+
+// body{
+//     display:flex;
+//     justify-content: center;
+//     align-items:center;
+//     min-height:100vh;
+//     background: #222;
+// }
+// .container{
+//     position:relative;
+//     display:flex;
+//     justify-content: center;
+//     align-items:center;
+//     flex-wrap: wrap;
+//     gap:40px;
+// }
+
+
+// .container .progress{
+//     position: relative;
+//     width: 150px;
+//     height: 150px;
+//     border-radius:50%;
+//     color:#FFF;
+//     background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
+// }
+
+//   .container .progress h5{
+//     position: absolute;
+//     top:48%;
+//     left:50%;
+//     transform: translate(-50%, -50%);
+//     font-size: 2.5em;
+//     z-index: 1;
+//     font-weight:500;
+//   }
+//   .container .progress h5 span{
+//         font-size: 0.65em;
+//         font-weight:400;
+//   }
+//   .container .progress h6{
+//     position: absolute;
+//     top:58%;
+//     left:50%;
+//     transform: translateX(-50%);
+//     z-index: 1;
+//     font-weight: 500;
+//     color:var(--clr);
+//     text-transform: uppercase;
+//   }
+
+//   .container .progress::before{
+//     content:'';
+//     display: block;
+//     height:100%;
+//     margin-left:50%;
+//     transform-origin:left;
+//     border-radius: 0  100% 100% 0/50%;
+
+//   }
+//   .container .progress::after{
+//     content:'';
+//     position: absolute;
+//     inset:10px;
+//     border-radius:50%;
+//     background:#222;
+//   }
+//   .container .progress::before{
+//     background:var(--clr);
+//     transform:rotate(calc(((var(--i)-50)*0.01turn)));
+//   }
+  
+//   .container .progress.less::before{
+//     background: #4444;
+//     transform:rotate(calc(((var(--i)-0)*0.01turn)));
+//   }
+
+/* src/app/progress-circle/progress-circle.component.scss */
+
+// .container {
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 40px;
+// }
+
+// .container .progress {
+//   position: relative;
+//   width: 150px;
+//   height: 150px;
+//   border-radius: 50%;
+//   color: #33a900;
+//   background: #444 linear-gradient(to right, transparent 50%, var(--clr) 6);
+// }
+
+// .container .progress h5 {
+//   position: absolute;
+//   top: 48%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   font-size: 1.5em;
+//   z-index: 1;
+//   font-weight: 500;
+// }
+
+// .container .progress  span {
+//   font-size: 0.65em;
+//   font-weight: 400;
+// }
+
+// .container .progress h5 {
+//   position: absolute;
+//   top: 58%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   z-index: 1;
+//   font-weight: 80;
+//   color: var(--clr);
+//   text-transform: uppercase;
+// }
+
+// .container .progress::before {
+//   content: '';
+//   display: block;
+//   height: 100%;
+//   margin-left: 50%;
+//   transform-origin: left;
+//   border-radius: 0 100% 100% 0 / 50%;
+// }
+
+// .container .progress::after {
+//   content: '';
+//   position: absolute;
+//   inset: 10px;
+//   border-radius: 50%;
+//   background: #22222250;
+// }
+
+// .container .progress::before {
+//   background: var(--clr);
+//   transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+// }
+
+// .container .progress.less::before {
+//   background: #4444;
+//   transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+// }
+//-----------------------------number 3_------------------------
+/* src/app/progress-circle/progress-circle.component.scss */
+
+/* src/app/progress-circle/progress-circle.component.scss */
+ion-content{
+    --background:#blue;
+}
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .container .progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    color: #33a900;
+    background: #444 linear-gradient(to right, transparent 50%, var(--clr) 6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .container .progress h5 {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    z-index: 1;
+    font-weight: 500;
+  }
+  
+  .container .progress span {
+    font-size: 0.65em;
+    font-weight: 400;
+  }
+  
+  .container .progress h6 {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-weight: 800;
+    color: var(--clr);
+    text-transform: uppercase;
+  }
+  
+  .container .progress::before {
+    content: '';
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    transform-origin: left;
+    border-radius: 0 100% 100% 0 / 50%;
+  }
+  
+  .container .progress::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: #22222250;
+  }
+  
+  .container .progress::before {
+    background: var(--clr);
+    transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+  }
+  
+  .container .progress.less::before {
+    background: #4444;
+    transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+  }
+  
