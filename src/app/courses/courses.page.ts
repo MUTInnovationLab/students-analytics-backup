@@ -19,6 +19,7 @@ export class CoursesPage implements OnInit {
 
   valueToSend: string='';
   courses: Course[] = [];
+  streams: Course[] = [];
   department: string='';
  // Initialize as an empty array
   searchKeyword: string = '';
@@ -74,9 +75,13 @@ export class CoursesPage implements OnInit {
     this.firestore.collection('Courses', ref => ref.where('department', '==', this.department))
       .valueChanges()
       .subscribe((courses: any[]) => {
-        this.courses = courses;
-        this.filterCourses() 
+        this.courses  = courses;
+        
+
       });
+  }
+  load(){
+    this.courses = this.streams;
   }
 
   filterCourses() {
@@ -88,4 +93,39 @@ export class CoursesPage implements OnInit {
   applyFilter() {
     this.courses = [...this.filteredCourses];
   }
+// Declare a property to store the original courses data
+originalCourses: Course[] = [];
+
+// Assuming this.courses is an array of Course objects
+searchCourse(ev: any) {
+  this.getCoursesWithSpecificCategory();
+  let course = ev.target.value;
+  
+  // If the originalCourses array is empty, copy the data from this.courses
+  if (this.originalCourses.length === 0) {
+    this.originalCourses = [...this.courses];
+  }
+  
+  if (course && course.trim() !== '') {
+    this.courses = this.originalCourses.filter((cours: Course) => {
+      return cours.name.toLowerCase().includes(course.toLowerCase());
+    });
+  } else {
+    // If the input is empty, show all courses
+    this.courses = [...this.originalCourses];
+  }
+}
+
+
+  //   searchCourse(ev: any) {
+  //     this.load();
+  //     let course = ev.target.value;
+      
+  //     if (course && course.trim() !== '') {
+  //       this.courses = this.courses.filter((cours: Course) => {
+  //         return cours.name.toLowerCase().includes(course.toLowerCase());
+  //       });
+  //     }
+
+  // }
 }

@@ -17,10 +17,11 @@
    </ion-button>
    <ion-button fill="clear">
    <ion-icon color='light' class="hideIcon" name="chevron-forward-outline"></ion-icon>
-  </ion-button><ion-searchbar id="searchKeyword" class="custom-searchbar" placeholder="Search the Course"></ion-searchbar>
-   <ion-button (click)="applyFilter()">
+  </ion-button>
+  <ion-searchbar id="searchKeyword" class="custom-searchbar" placeholder="Search the Course" (ionInput)="searchCourse($event)"></ion-searchbar>
+   <!-- <ion-button (click)="applyFilter()">
 
-   </ion-button>  
+   </ion-button>   -->
   <ion-buttons slot="end">
       <ion-button size="medium" fill="clear" color="secondary" (click)="presentAddDepartmentModal()">
         <ion-icon size="large" name="add-circle-outline"></ion-icon>
