@@ -30,6 +30,7 @@ export class UploadSpreadsheetPage implements OnInit {
   isLoading = false;
   name: any = '';
   modules: any;
+  selectedModuled:any;
 
   constructor(
     private data: DataService,
@@ -127,9 +128,24 @@ if (!this.selectedFile) {
         const sheet = workbook.Sheets[sheetName];
         this.ContentsOfFile = XLSX.utils.sheet_to_json(sheet);
         console.log(this.ContentsOfFile);
-        this.data.addStudent(this.ContentsOfFile)
-      };
+     let studentDataToSave={};
+        this.ContentsOfFile.forEach((student) => {
+           studentDataToSave  = {
+            module: this.selectedModuled, // Assuming selectedModuled is the selected module
+            studentNumber: student['student_number'],
+            test1: student['test1'],
+            test2: student['test2'],
+            test3: student['test3'],
+            test4: student['test4'],
+          };
 
+        });
+
+        this.data.addStudent(studentDataToSave).then(responce =>{
+          alert("aeqwef");
+        });
+      };
+     // this.data.addStudent(this.ContentsOfFile);
       reader.readAsBinaryString(file);
      
     }

@@ -20,6 +20,12 @@ export class DataService {
     return this.firestore.collection('students').add(data);
   }
 
+  addStudentMark(data: any){
+    return this.firestore.collection('students').doc(data.student_number).set(data);
+  }
+
+
+
   getAllStudents(): Observable<Student[]> {
     return this.firestore.collection<Student>('students').valueChanges();
   }
