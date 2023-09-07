@@ -30,7 +30,7 @@ export class UploadSpreadsheetPage implements OnInit {
   isLoading = false;
   name: any = '';
   modules: any;
-  selectedModuled="";
+  selectedModuled = '';
 
   constructor(
     private data: DataService,
@@ -41,14 +41,10 @@ export class UploadSpreadsheetPage implements OnInit {
     //this.loadStudents();
     //this.linesArray = this.pdfContent.split('\n');
     // console.error(this.linesArray);
- 
   }
 
   async ngOnInit() {
     await this.getCurrentUserEmail();
-  
-  
-
   }
   //------------------------------------------------
   // async showLoader() {
@@ -105,7 +101,7 @@ export class UploadSpreadsheetPage implements OnInit {
     // this.name=this.selectedFile?.name;
     this.selectedFile = event.target as HTMLInputElement;
     // Extract the file name
-if (!this.selectedFile) {
+    if (!this.selectedFile) {
       this.found = false;
       this.disableButton = true;
     }
@@ -115,7 +111,7 @@ if (!this.selectedFile) {
       this.readAndUploadFileContent();
     }
   }
-async  readAndUploadFileContent() {
+  async readAndUploadFileContent() {
     if (this.selectedFile.files && this.selectedFile.files.length > 0) {
       const file = this.selectedFile.files[0];
       this.name = file.name;
@@ -128,42 +124,36 @@ async  readAndUploadFileContent() {
         const sheet = workbook.Sheets[sheetName];
         this.ContentsOfFile = XLSX.utils.sheet_to_json(sheet);
         console.log(this.ContentsOfFile);
-       };
-     // this.data.addStudent(this.ContentsOfFile);
+      };
+      // this.data.addStudent(this.ContentsOfFile);
       reader.readAsBinaryString(file);
     }
   }
 
   async uploadMarks() {
-
- if (this.selectedModuled==""){
-      alert("choose module");
-      return
- }
-
+    if (this.selectedModuled == '') {
+      alert('choose module');
+      return;
+    }
 
     if (this.selectedFile) {
       // Read the content of the selected file before uploading
       this.onFileChange(this.selectedFile);
       for (const studentData of this.ContentsOfFile) {
-
         const studentObject = {
-           module:this.selectedModuled,
-           student_number:studentData.student_number,
-           test1: studentData.test1,
-           test2: studentData.test2,
-           test3:studentData.test3,
-           test4:studentData.test4
+          module: this.selectedModuled,
+          student_number: studentData.student_number,
+          test1: studentData.test1,
+          test2: studentData.test2,
+          test3: studentData.test3,
+          test4: studentData.test4,
         };
 
-
-  await this.data.addStudent(studentObject).then(responce =>{
-         alert("aeqwef");
-
+        await this.data.addStudent(studentObject).catch((responce) => {
+          console.log(responce);
         });
-
-
       }
+      this.ContentsOfFile.length = 0;
     }
   }
 
@@ -219,26 +209,20 @@ async  readAndUploadFileContent() {
   //   }
   // }
 
-  
   async getCurrentUserEmail() {
     this.userEmail = await this.data.getCurrentUserEmail();
     if (this.userEmail) {
       this.data
         .getUserOneUser(this.userEmail)
         .valueChanges()
-        .subscribe((Response: any )=> {
+        .subscribe((Response: any) => {
           this.staffNo = Response;
           this.data
-          .getModuleByStaffNumber(this.staffNo.staffNumber)
-          .subscribe((response:any) => {
-            this.modules = response;
-          });
+            .getModuleByStaffNumber(this.staffNo.staffNumber)
+            .subscribe((response: any) => {
+              this.modules = response;
+            });
         });
     }
   }
-
- 
-
-
-
 }

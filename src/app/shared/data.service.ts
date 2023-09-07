@@ -33,7 +33,12 @@ export class DataService {
   getAllMembers() {
     return this.firestore.collection('registered').valueChanges();
   }
-  
+  getNumberOfDepartments(){
+    return this.firestore.collection('Departments').valueChanges();
+  }
+  getNumberOfcourse(){
+    return this.firestore.collection('Courses').valueChanges();
+  }
   getAllDept(): Observable<department[]> {
     return this.firestore.collection<department>('Departments').valueChanges();
   }

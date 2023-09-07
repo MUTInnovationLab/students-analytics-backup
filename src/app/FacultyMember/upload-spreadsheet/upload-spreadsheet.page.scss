@@ -59,5 +59,13 @@
     background-color:rgb(210, 210, 210);
     color: #5a5a5a; /* Set the desired blue color */
   }
+  // your-component.scss
+ion-select.custom-select {
+  --ion-background-color: #F2F2F2;
+  --ion-color: #333;
+  font-size: 25px;
+}
+
+
   
   

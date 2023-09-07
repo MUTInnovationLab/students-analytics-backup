@@ -73,7 +73,7 @@
 
   <ion-card style="margin-left:10%;margin-right:10%">
    
-    <ion-select   label="Select module" label-placement="stacked" [(ngModel)]="selectedModuled">
+    <ion-select   label="Select module" class="custom-select" label-placement="stacked" [(ngModel)]="selectedModuled">
       <ion-select-option *ngFor="let item of modules">{{item.subjectCode}}</ion-select-option>
     </ion-select>
 

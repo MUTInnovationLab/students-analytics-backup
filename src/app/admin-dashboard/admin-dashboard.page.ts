@@ -19,6 +19,8 @@ export class AdminDashboardPage implements OnInit {
   numberOfStudents: any;
   membersSubscription: Subscription | undefined;
   studentsSubscription: Subscription | undefined;
+  numberOfDepartments: any;
+  NumberOfcourse:any;
 
   constructor(private data: DataService, private menuCtrl: MenuController,
      private firestore: AngularFirestore) {
@@ -35,11 +37,12 @@ export class AdminDashboardPage implements OnInit {
 
 
 async getInitialData() {
-  await Promise.all([this.getUserDoc(), this.getNumberOfMembers(), this.getNumberOfStudents()]);
+  await Promise.all([this.getUserDoc(), this.getNumberOfMembers(),this.getNumberOfcourse(), this.getNumberOfStudents(),this.getNumberOfDepartments()]);
 }
 
   async getUserDoc() {
     this.userEmail = await this.data.getCurrentUserEmail();
+    if(this.userEmail){
     try {
       const userDoc = await this.firestore.collection('registered').doc(this.userEmail).get().toPromise();
       this.name = userDoc?.get('name') || null;
@@ -47,6 +50,7 @@ async getInitialData() {
     } catch (error) {
       console.error('Error getting user role:', error);
     }
+  }
   }
 
   async getNumberOfMembers() {
@@ -67,6 +71,30 @@ async getInitialData() {
       const querySnapshot =  this.data.getAllStudents();
       this.studentsSubscription = querySnapshot.subscribe((number: any[]) => {
         this.numberOfStudents = number.length;
+        console.log('Number of student documents:', number.length);
+      });
+    } catch (error) {
+      console.error('Error getting user documents:', error);
+    }
+  }
+
+  async getNumberOfDepartments() {
+    try {
+      const querySnapshot =  this.data.getNumberOfDepartments();
+      this.studentsSubscription = querySnapshot.subscribe((number: any[]) => {
+        this.numberOfDepartments = number.length;
+        console.log('Number of student documents:', number.length);
+      });
+    } catch (error) {
+      console.error('Error getting user documents:', error);
+    }
+  }
+
+  async getNumberOfcourse() {
+    try {
+      const querySnapshot =  this.data.getNumberOfcourse();
+      this.studentsSubscription = querySnapshot.subscribe((number: any[]) => {
+        this.NumberOfcourse = number.length;
         console.log('Number of student documents:', number.length);
       });
     } catch (error) {
