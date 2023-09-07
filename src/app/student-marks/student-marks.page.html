@@ -29,7 +29,12 @@
     <h6>average</h6>
   </div>
 </div>
-
+<ion-item>
+  <ion-searchbar id="searchKeyword" class="custom-searchbar" placeholder="Search the Course" (ionInput)="searchCourse($event)"></ion-searchbar>
+</ion-item>
+<ion-card *ngFor="let test of tests">
+  <ion-item>{{test}}</ion-item>
+</ion-card>
 
 
   <!-- <ion-item> -->
