@@ -17,8 +17,7 @@ export class DataService {
     return this.firestore.collection('registered').doc(data.email).set(data);
   }
   addStudent(data: any){
-    data.uid = this.firestore.createId();
-    return this.firestore.collection('/students').add(data);
+    return this.firestore.collection('students').add(data);
   }
 
   getAllStudents(): Observable<Student[]> {
