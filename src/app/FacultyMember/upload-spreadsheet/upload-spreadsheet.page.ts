@@ -30,7 +30,7 @@ export class UploadSpreadsheetPage implements OnInit {
   isLoading = false;
   name: any = '';
   modules: any;
-  selectedModuled:any;
+  selectedModuled="";
 
   constructor(
     private data: DataService,
@@ -115,47 +115,55 @@ if (!this.selectedFile) {
       this.readAndUploadFileContent();
     }
   }
-  readAndUploadFileContent() {
+async  readAndUploadFileContent() {
     if (this.selectedFile.files && this.selectedFile.files.length > 0) {
       const file = this.selectedFile.files[0];
       this.name = file.name;
       const reader = new FileReader();
 
-      reader.onload = (e) => {
+      reader.onload = async (e) => {
         const data = e.target?.result as string;
         const workbook = XLSX.read(data, { type: 'binary' });
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         this.ContentsOfFile = XLSX.utils.sheet_to_json(sheet);
         console.log(this.ContentsOfFile);
-     let studentDataToSave={};
-        this.ContentsOfFile.forEach((student) => {
-           studentDataToSave  = {
-            module: this.selectedModuled, // Assuming selectedModuled is the selected module
-            studentNumber: student['student_number'],
-            test1: student['test1'],
-            test2: student['test2'],
-            test3: student['test3'],
-            test4: student['test4'],
-          };
-
-        });
-
-        this.data.addStudent(studentDataToSave).then(responce =>{
-          alert("aeqwef");
-        });
-      };
+       };
      // this.data.addStudent(this.ContentsOfFile);
       reader.readAsBinaryString(file);
-     
     }
   }
 
-  uploadMarks() {
+  async uploadMarks() {
+
+ if (this.selectedModuled==""){
+      alert("choose module");
+      return
+ }
+
+
     if (this.selectedFile) {
       // Read the content of the selected file before uploading
       this.onFileChange(this.selectedFile);
-    
+      for (const studentData of this.ContentsOfFile) {
+
+        const studentObject = {
+           module:this.selectedModuled,
+           student_number:studentData.student_number,
+           test1: studentData.test1,
+           test2: studentData.test2,
+           test3:studentData.test3,
+           test4:studentData.test4
+        };
+
+
+  await this.data.addStudent(studentObject).then(responce =>{
+         alert("aeqwef");
+
+        });
+
+
+      }
     }
   }
 
